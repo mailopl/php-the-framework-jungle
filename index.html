@@ -1,1 +1,747 @@
-<!DOCTYPE html> <html class="no-js"> <head> <meta charset="utf-8" /> <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> <title>PHP: The framework jungle</title> <meta name="description" content="When it comes to a frameworks in PHP, this is a jungle. Ruby has Rails, PHP has Symfony2, ZF, CakePHP, Yii, Laravel. Here you have everything you need, to choose the right one for you." /> <meta name="robots" content="index,follow,archive"/> <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/> <meta property="og:image" content="./img/typical_panda_nothing_fancy.png"/> <meta property="og:title" content="PHP: The Framework Jungle"/> <meta property="og:description" content="When it comes to a frameworks in PHP, this is a jungle. Ruby has Rails, PHP has Symfony2, ZF, CakePHP, Yii, Laravel. Here you have everything you need, to choose the right one for you."/> <meta property="og:url" content="http://www.php-jungle.com"/> <meta property="og:site_name" content="PHP: The Framework Jungle"/> <meta property="og:type" content="website"/> <link rel="stylesheet" href="css/bootstrap.min.css" /> <link rel="stylesheet" href="css/bootstrap-responsive.min.css" /> <link rel="stylesheet" href="css/main.css" /> <link rel="stylesheet" href="css/chosen.css" /> <link rel="shortcut icon" href="favicon.png"> <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script> </head> <body> <a class="fork-me" href="https://github.com/mailopl/php-the-framework-jungle"> <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"> </a> <div class="interesting-header"> <img src="./img/typical_panda_nothing_fancy.png" alt="Our panda logo!"/> <p> <strong>Welcome, in the framework jungle!</strong> <br /> <br /> So you know PHP and few of the fancy frameworks out there, and you know that there's no Rails for PHP. <br /> Let's take a look, there's Symfony2, ZF2, CakePHP, Yii, Laravel... and the list goes on. <br /><br /> What do ALL of these frameworks have in common ? <b>Scenarios</b> in which you will use them. <br />For example, <b>user authentication</b>. It doesn't matter if you use Symfony2 or Laravel, if you need some <br /> badass authentication - you need it, period. </p> </div> <div class="container"> <p> <h2>What &amp; how ?</h2> <p>We set some common factors for all of the frameworks to match. For example, we use <a href="img/erd.png" target="_blank">this database schema <img src="img/database.png" /></a>. <br /> Using that schema, we created business rules (ex. email must be unique and in proper format, password must not be empty), <br /> common routes (like http://domain.com/users/new) and many more, just pick up a scenario! </p> <ul class="nav nav-pills"> <li class="active"> <a href="#CakePHP">CakePHP</a> </li> <li class=""> <a href="#Yii">Yii</a> </li> <li class="tweet"> <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://phpjungle.org" data-count="none" data-hashtags="php">Tweet</a> </li> </ul> <div class="well"> <p class="urls"> <a href="http://cakephp.org">Official website</a> <a href="http://docs.cakephp.org">Official docs</a> </p> <h2 id="CakePHP">CakePHP</h2> <div class="tabbable tabs-left"> <ul class="nav nav-tabs"> <li class="active"><a href="#b4d7c81954d2eeaf185191355ee02fa9" data-toggle="tab">2.2</a></li> <li ><a href="#bcb945ff7d16aeadf1678016ad1504b4" data-toggle="tab">1.3</a></li> </ul> <div class="tab-content"> <div class="tab-pane active" id="b4d7c81954d2eeaf185191355ee02fa9"> <div class="tabbable"> <select class="chosen" style="width:400px;"> <option></option> <option rel="#e405d234978dabab6a963de5fc8baf74" data-toggle="tab"> .. to get a specified record from database </option> <option rel="#751555f04230a22176371948863533a9" data-toggle="tab"> .. to connect to the database </option> <option rel="#7e8ba4e41413029da7e56db4c4e76fa6" data-toggle="tab"> .. to translate my application </option> <option rel="#134b3655686240e6e7e71b3d45b5a063" data-toggle="tab"> .. to improve performance </option> <option rel="#6e5f07fc4ce0e08e801000dbe25eff53" data-toggle="tab"> .. to find related records </option> <option rel="#74f9fac8bd589bbbcc186d1a1851ef9b" data-toggle="tab"> .. to save related records </option> <option rel="#e72efb39da51802117d2bba63388ebb3" data-toggle="tab"> .. to validate my record </option> <option rel="#1eed0b9d692f8372f52217797a2156a8" data-toggle="tab"> .. to generate a basic view </option> <option rel="#6341d3c3d3900d526bc7ab84e1f847a3" data-toggle="tab"> .. to change meaning of URLs </option> <option rel="#c5c8ec940f42731e8bfb64048086487b" data-toggle="tab"> .. to have my data cached </option> <option rel="#7f23d11df8683769a63466900d4de722" data-toggle="tab"> .. to define a Model </option> <option rel="#db9471c00d7c36e309d5aa516644f066" data-toggle="tab"> .. to define a Controller </option> <option rel="#2a1b922808dd089eedbbbe94b97b838f" data-toggle="tab"> .. to go REST </option> <option rel="#e9e049254c14759db7874139770176e5" data-toggle="tab"> .. to authenticate the User </option> <option rel="#1320882bcc2d60531abdfbef4b5f34ee" data-toggle="tab"> .. to send an Email </option> </select> <hr size="1" /> <div class="tab-content"> <div class="tab-pane active" id="e405d234978dabab6a963de5fc8baf74"> <p>Model ensures that provided data is in the correct format and handles business logic. <br /> Usually represents a database table (another example would be Model as REST service).</p> <p><script src="https://gist.github.com/3743496.js"> </script></p> </div> <div class="tab-pane" id="751555f04230a22176371948863533a9"> <p>Sorry, no description. 31416222425</p> <p>Sorry, no code snippet. 03691416</p> </div> <div class="tab-pane" id="7e8ba4e41413029da7e56db4c4e76fa6"> <p>Sorry, no description. 1710162025</p> <p>Sorry, no code snippet. 5913172225</p> </div> <div class="tab-pane" id="134b3655686240e6e7e71b3d45b5a063"> <p>Sorry, no description. 0910141825</p> <p>Sorry, no code snippet. 0415162024</p> </div> <div class="tab-pane" id="6e5f07fc4ce0e08e801000dbe25eff53"> <p>Sorry, no description. 046202224</p> <p>Sorry, no code snippet. 359101518</p> </div> <div class="tab-pane" id="74f9fac8bd589bbbcc186d1a1851ef9b"> <p>Sorry, no description. 01416212325</p> <p>Sorry, no code snippet. 0810112325</p> </div> <div class="tab-pane" id="e72efb39da51802117d2bba63388ebb3"> <p>Sorry, no description. 0513192223</p> <p>Sorry, no code snippet. 1410172225</p> </div> <div class="tab-pane" id="1eed0b9d692f8372f52217797a2156a8"> <p>Sorry, no description. 015111319</p> <p>Sorry, no code snippet. 139101113</p> </div> <div class="tab-pane" id="6341d3c3d3900d526bc7ab84e1f847a3"> <p>Sorry, no description. 469101719</p> <p>Sorry, no code snippet. 2810151720</p> </div> <div class="tab-pane" id="c5c8ec940f42731e8bfb64048086487b"> <p>Sorry, no description. 5718192022</p> <p>Sorry, no code snippet. 23481722</p> </div> <div class="tab-pane" id="7f23d11df8683769a63466900d4de722"> <p>Sorry, no description. 81115172224</p> <p>Sorry, no code snippet. 0518192125</p> </div> <div class="tab-pane" id="db9471c00d7c36e309d5aa516644f066"> <p>Sorry, no description. 21014162324</p> <p>Sorry, no code snippet. 12672025</p> </div> <div class="tab-pane" id="2a1b922808dd089eedbbbe94b97b838f"> <p>Sorry, no description. 369111323</p> <p>Sorry, no code snippet. 05791416</p> </div> <div class="tab-pane" id="e9e049254c14759db7874139770176e5"> <p>Sorry, no description. 91417202125</p> <p>Sorry, no code snippet. 2416202122</p> </div> <div class="tab-pane" id="1320882bcc2d60531abdfbef4b5f34ee"> <p>Sorry, no description. 121318192225</p> <p>Sorry, no code snippet. 81013151819</p> </div> </div> </div> </div> <div class="tab-pane" id="bcb945ff7d16aeadf1678016ad1504b4"> <div class="tabbable"> <select class="chosen" style="width:400px;"> <option></option> <option rel="#42dea48ef48d2deff792eec99e23ee31" data-toggle="tab"> .. to get a specified record from database </option> <option rel="#2e06065ce371608dbb801ca7a94a14d3" data-toggle="tab"> .. to connect to the database </option> <option rel="#c8323d5884c3aca6b0fecca50e5497e5" data-toggle="tab"> .. to translate my application </option> <option rel="#3093e86be8961e8fde7ea477ad6a20f1" data-toggle="tab"> .. to improve performance </option> <option rel="#0acc9ce77f47ef1090691f2c70b94e26" data-toggle="tab"> .. to find related records </option> <option rel="#ffedf4149a1d08624df35f89686a0c47" data-toggle="tab"> .. to save related records </option> <option rel="#b1afd584bd489cb0157da227e3076bc8" data-toggle="tab"> .. to validate my record </option> <option rel="#bde34b5a1ec88fee0a4eb3c673e28efd" data-toggle="tab"> .. to generate a basic view </option> <option rel="#9a2594a70c502a71f09d2b0864fc9690" data-toggle="tab"> .. to change meaning of URLs </option> <option rel="#21f6140b4f3c708e6bfdab81a069320c" data-toggle="tab"> .. to have my data cached </option> <option rel="#c132611417c523baf29d25d576a5ed41" data-toggle="tab"> .. to define a Model </option> <option rel="#8750d7ddf89a4c1c92c5f1d4b2f67483" data-toggle="tab"> .. to define a Controller </option> <option rel="#8930c015aa935b55e0417464db152cd2" data-toggle="tab"> .. to go REST </option> <option rel="#20406946f84ed5c1514045a08be861d5" data-toggle="tab"> .. to authenticate the User </option> <option rel="#60ba0e9f8a1a7ddf5cbaee9da6a6f68d" data-toggle="tab"> .. to send an Email </option> </select> <hr size="1" /> <div class="tab-content"> <div class="tab-pane active" id="42dea48ef48d2deff792eec99e23ee31"> <p>Model ensures that provided data is in the correct format and handles business logic. <br /> Usually represents a database table (another example would be Model as REST service).</p> <p><script src="https://gist.github.com/3743496.js"> </script></p> </div> <div class="tab-pane" id="2e06065ce371608dbb801ca7a94a14d3"> <p>Sorry, no description. 0915172324</p> <p>Sorry, no code snippet. 7912172025</p> </div> <div class="tab-pane" id="c8323d5884c3aca6b0fecca50e5497e5"> <p>Sorry, no description. 1517192225</p> <p>Sorry, no code snippet. 15891420</p> </div> <div class="tab-pane" id="3093e86be8961e8fde7ea477ad6a20f1"> <p>Sorry, no description. 069101216</p> <p>Sorry, no code snippet. 068111724</p> </div> <div class="tab-pane" id="0acc9ce77f47ef1090691f2c70b94e26"> <p>Sorry, no description. 14891415</p> <p>Sorry, no code snippet. 5711121322</p> </div> <div class="tab-pane" id="ffedf4149a1d08624df35f89686a0c47"> <p>Sorry, no description. 71112151822</p> <p>Sorry, no code snippet. 389121421</p> </div> <div class="tab-pane" id="b1afd584bd489cb0157da227e3076bc8"> <p>Sorry, no description. 61113192024</p> <p>Sorry, no code snippet. 026141921</p> </div> <div class="tab-pane" id="bde34b5a1ec88fee0a4eb3c673e28efd"> <p>Sorry, no description. 345182325</p> <p>Sorry, no code snippet. 01351014</p> </div> <div class="tab-pane" id="9a2594a70c502a71f09d2b0864fc9690"> <p>Sorry, no description. 6918222324</p> <p>Sorry, no code snippet. 4510141820</p> </div> <div class="tab-pane" id="21f6140b4f3c708e6bfdab81a069320c"> <p>Sorry, no description. 12371719</p> <p>Sorry, no code snippet. 168112425</p> </div> <div class="tab-pane" id="c132611417c523baf29d25d576a5ed41"> <p>Sorry, no description. 01791415</p> <p>Sorry, no code snippet. 246112125</p> </div> <div class="tab-pane" id="8750d7ddf89a4c1c92c5f1d4b2f67483"> <p>Sorry, no description. 068172224</p> <p>Sorry, no code snippet. 8910112224</p> </div> <div class="tab-pane" id="8930c015aa935b55e0417464db152cd2"> <p>Sorry, no description. 2911171820</p> <p>Sorry, no code snippet. 101113172023</p> </div> <div class="tab-pane" id="20406946f84ed5c1514045a08be861d5"> <p>Sorry, no description. 7813212224</p> <p>Sorry, no code snippet. 028131921</p> </div> <div class="tab-pane" id="60ba0e9f8a1a7ddf5cbaee9da6a6f68d"> <p>Sorry, no description. 0127924</p> <p>Sorry, no code snippet. 3611121517</p> </div> </div> </div> </div> </div> </div> <p class="urls"> </p> <h2 id="Yii">Yii</h2> <div class="tabbable tabs-left"> <ul class="nav nav-tabs"> <li class="active"><a href="#ad50a4f654e94165b93a8bd30d63e65f" data-toggle="tab">1.1</a></li> </ul> <div class="tab-content"> <div class="tab-pane active" id="ad50a4f654e94165b93a8bd30d63e65f"> <div class="tabbable"> <select class="chosen" style="width:400px;"> <option></option> <option rel="#fcc99df83be91bedf5557a3331299776" data-toggle="tab"> .. to get a specified record from database </option> <option rel="#a4f868596066faeb6f7dd021557eb1a3" data-toggle="tab"> .. to connect to the database </option> <option rel="#d62dfca704930af5c146836ab53d4142" data-toggle="tab"> .. to translate my application </option> <option rel="#267ea7542528a3ad563fbd6bb351765e" data-toggle="tab"> .. to improve performance </option> <option rel="#c07a290c13da82121467842820bc07bb" data-toggle="tab"> .. to find related records </option> <option rel="#81a4a994e4725cf729a19b3a5b999c88" data-toggle="tab"> .. to save related records </option> <option rel="#007f4f80cc47f00dcb19813232e67841" data-toggle="tab"> .. to validate my record </option> <option rel="#a4f0e3145cfdff8d0bcf0b55cc94adb6" data-toggle="tab"> .. to generate a basic view </option> <option rel="#9d0c260a5a6a92b1a400d6fafda8ffe4" data-toggle="tab"> .. to change meaning of URLs </option> <option rel="#e1a2bb6bd0398d6d7a0ef4068686a195" data-toggle="tab"> .. to have my data cached </option> <option rel="#2b4a1b9c9ef6e0d63c5affc02c6ff54b" data-toggle="tab"> .. to define a Model </option> <option rel="#e0bb7328ee4ef3324d5e8965bbd4c8ca" data-toggle="tab"> .. to define a Controller </option> <option rel="#c40dbc4c023e6e090ddaae628ae2838e" data-toggle="tab"> .. to go REST </option> <option rel="#9e3320050d8efe75ce51279de1af3d04" data-toggle="tab"> .. to authenticate the User </option> <option rel="#b345782aaf5df1a13f43b6cb82d874c8" data-toggle="tab"> .. to send an Email </option> </select> <hr size="1" /> <div class="tab-content"> <div class="tab-pane active" id="fcc99df83be91bedf5557a3331299776"> <p>Sorry, no description. 146161723</p> <p>Sorry, no code snippet. 46791217</p> </div> <div class="tab-pane" id="a4f868596066faeb6f7dd021557eb1a3"> <p>Sorry, no description. 7910192324</p> <p>Sorry, no code snippet. 04692325</p> </div> <div class="tab-pane" id="d62dfca704930af5c146836ab53d4142"> <p>Sorry, no description. 01215162324</p> <p>Sorry, no code snippet. 13451924</p> </div> <div class="tab-pane" id="267ea7542528a3ad563fbd6bb351765e"> <p>Sorry, no description. 2710161922</p> <p>Sorry, no code snippet. 0113152425</p> </div> <div class="tab-pane" id="c07a290c13da82121467842820bc07bb"> <p>Sorry, no description. 2612152225</p> <p>Sorry, no code snippet. 04781216</p> </div> <div class="tab-pane" id="81a4a994e4725cf729a19b3a5b999c88"> <p>Sorry, no description. 023141524</p> <p>Sorry, no code snippet. 8910131422</p> </div> <div class="tab-pane" id="007f4f80cc47f00dcb19813232e67841"> <p>Sorry, no description. 3920212223</p> <p>Sorry, no code snippet. 4514151923</p> </div> <div class="tab-pane" id="a4f0e3145cfdff8d0bcf0b55cc94adb6"> <p>Sorry, no description. 71213172124</p> <p>Sorry, no code snippet. 81011202122</p> </div> <div class="tab-pane" id="9d0c260a5a6a92b1a400d6fafda8ffe4"> <p>Sorry, no description. 1515172122</p> <p>Sorry, no code snippet. 51019212324</p> </div> <div class="tab-pane" id="e1a2bb6bd0398d6d7a0ef4068686a195"> <p>Sorry, no description. 013112024</p> <p>Sorry, no code snippet. 057161722</p> </div> <div class="tab-pane" id="2b4a1b9c9ef6e0d63c5affc02c6ff54b"> <p>Sorry, no description. 359101221</p> <p>Sorry, no code snippet. 1210162023</p> </div> <div class="tab-pane" id="e0bb7328ee4ef3324d5e8965bbd4c8ca"> <p>Sorry, no description. 013121321</p> <p>Sorry, no code snippet. 4518202123</p> </div> <div class="tab-pane" id="c40dbc4c023e6e090ddaae628ae2838e"> <p>Sorry, no description. 23451323</p> <p>Sorry, no code snippet. 0712172325</p> </div> <div class="tab-pane" id="9e3320050d8efe75ce51279de1af3d04"> <p>Sorry, no description. 01012172023</p> <p>Sorry, no code snippet. 41012161719</p> </div> <div class="tab-pane" id="b345782aaf5df1a13f43b6cb82d874c8"> <p>Sorry, no description. 111216222425</p> <p>Sorry, no code snippet. 6910111421</p> </div> </div> </div> </div> </div> </div> </div> <hr /> <footer> <p> Thanks to <a href="http://ww5.iconsmaster.com/">iconmaster</a> for great panda icon, and to <a href="http://twitter.github.com/bootstrap/">twitter</a> that we don't need to handle the design. <br /> <strong>PHP: The framework jungle</strong> by <a href="http://about.me/mailo">Marcin Wawrzyniak (mailo)</a> is licensed under <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a> </p> </footer> </div> <!-- /container --> <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.1.min.js"><\/script>')</script> <script src="js/chosen.jquery.js"></script> <script src="js/vendor/bootstrap.min.js"></script> <script src="js/main.js"></script> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script> <script> $(document).ready(function(){ $(".chosen").data("placeholder","Pick up a scenario! What do I need to do.. ").chosen(); }); </script> </body> </html> 
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <title>PHP: The framework jungle</title>
+        <meta name="description" content="When it comes to a frameworks in PHP, this is a jungle. Ruby has Rails, PHP has Symfony2, ZF, CakePHP, Yii, Laravel. Here you have everything you need, to choose the right one for you." />
+        <meta name="robots" content="index,follow,archive"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        <meta property="og:image" content="./img/typical_panda_nothing_fancy.png"/>
+        <meta property="og:title" content="PHP: The Framework Jungle"/>
+        <meta property="og:description" content="When it comes to a frameworks in PHP, this is a jungle. Ruby has Rails, PHP has Symfony2, ZF, CakePHP, Yii, Laravel. Here you have everything you need, to choose the right one for you."/>
+        <meta property="og:url" content="http://www.php-jungle.com"/>
+        <meta property="og:site_name" content="PHP: The Framework Jungle"/>
+        <meta property="og:type" content="website"/>
+        
+        <link rel="stylesheet" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
+        <link rel="stylesheet" href="css/main.css" />
+        <link rel="stylesheet" href="css/chosen.css" />
+
+        
+        <link href="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.css" type="text/css" rel="stylesheet" />
+        <script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.js"></script>
+
+
+        <link rel="shortcut icon" href="favicon.png">
+        <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+    </head>
+    <body>
+        <a class="fork-me" href="https://github.com/mailopl/php-the-framework-jungle">
+            <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub">
+        </a>
+
+
+        <div class="interesting-header">
+            <img src="./img/typical_panda_nothing_fancy.png" alt="Our panda logo!"/>
+            <p>
+                <strong>Welcome, in the framework jungle!</strong> <br /> <br />
+                
+                So you know PHP and few of the fancy frameworks out there, and you know that there's no Rails for PHP. <br />
+                Let's take a look, there's Symfony2, ZF2, CakePHP, Yii, Laravel... and the list goes on. <br /><br />
+                What do ALL of these frameworks have in common ? <b>Scenarios</b> in which you will use them. 
+                <br />For example, <b>user authentication</b>. It doesn't matter if you use Symfony2 or Laravel, if you need some <br />
+                badass authentication - you need it, period.
+                
+                
+            </p>
+        </div>
+
+        <div class="container">
+            <p>
+                <h2>What &amp; how ?</h2>
+                <p class="explain-me">We set some common factors for all of the frameworks to match. For example, we use <a href="img/erd.png" target="_blank">this database schema <img src="img/database.png" /></a>. <br />
+                    Using that schema, we created business rules (ex. email must be unique and in proper format, password must not be empty), <br />
+                    common routes (like http://domain.com/users/new) and many more, just pick up a scenario!
+            </p>
+
+            <ul class="nav nav-pills">
+                                    <li class="active">
+                        <a href="#CakePHP">CakePHP</a>
+                    </li>
+                                    <li class="">
+                        <a href="#Yii">Yii</a>
+                    </li>
+                     
+                <li class="tweet"> 
+                    <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://phpjungle.org" data-count="none" data-hashtags="php">Tweet</a>
+                </li>
+            </ul>
+            
+            <div class="well">
+                                                        
+                    <p class="urls">
+                                                                                    <a href="http://cakephp.org">Official website</a>
+                                                            <a href="http://docs.cakephp.org">Official docs</a>
+                                                                        </p>
+
+                    <h2 id="CakePHP">CakePHP</h2>
+
+
+                    <div class="tabbable tabs-left">
+                        <ul class="nav nav-tabs">
+                                                                                        <li class="active"><a href="#b4d7c81954d2eeaf185191355ee02fa9" data-toggle="tab">2.2</a></li>
+                                                                                        <li ><a href="#bcb945ff7d16aeadf1678016ad1504b4" data-toggle="tab">1.3</a></li>
+                            
+                        </ul>
+
+                        <div class="tab-content">       
+                                                                                                                
+                                                        
+                            <div class="tab-pane active" id="b4d7c81954d2eeaf185191355ee02fa9">   
+                                <div class="tabbable">
+                                    <select class="chosen" style="width:400px;">
+                                         <option></option>
+                                                                                                    
+                                                <option value="#e405d234978dabab6a963de5fc8baf74" data-target="#e405d234978dabab6a963de5fc8baf74" data-toggle="tab">
+                                                .. to get a specified record from database                                                </option>
+                                                                                                       
+                                                <option value="#751555f04230a22176371948863533a9" data-target="#751555f04230a22176371948863533a9" data-toggle="tab">
+                                                .. to connect to the database                                                </option>
+                                                                                                       
+                                                <option value="#7e8ba4e41413029da7e56db4c4e76fa6" data-target="#7e8ba4e41413029da7e56db4c4e76fa6" data-toggle="tab">
+                                                .. to translate my application                                                </option>
+                                                                                                       
+                                                <option value="#6e5f07fc4ce0e08e801000dbe25eff53" data-target="#6e5f07fc4ce0e08e801000dbe25eff53" data-toggle="tab">
+                                                .. to find related records                                                </option>
+                                                                                                       
+                                                <option value="#74f9fac8bd589bbbcc186d1a1851ef9b" data-target="#74f9fac8bd589bbbcc186d1a1851ef9b" data-toggle="tab">
+                                                .. to save related records                                                </option>
+                                                                                                       
+                                                <option value="#e72efb39da51802117d2bba63388ebb3" data-target="#e72efb39da51802117d2bba63388ebb3" data-toggle="tab">
+                                                .. to validate my record                                                </option>
+                                                                                                       
+                                                <option value="#1eed0b9d692f8372f52217797a2156a8" data-target="#1eed0b9d692f8372f52217797a2156a8" data-toggle="tab">
+                                                .. to generate a basic view                                                </option>
+                                                                                                       
+                                                <option value="#6341d3c3d3900d526bc7ab84e1f847a3" data-target="#6341d3c3d3900d526bc7ab84e1f847a3" data-toggle="tab">
+                                                .. to change meaning of URLs                                                </option>
+                                                                                                       
+                                                <option value="#c5c8ec940f42731e8bfb64048086487b" data-target="#c5c8ec940f42731e8bfb64048086487b" data-toggle="tab">
+                                                .. to have my data cached                                                </option>
+                                                                                                       
+                                                <option value="#8e61ea70297d6a85a8173c767b082174" data-target="#8e61ea70297d6a85a8173c767b082174" data-toggle="tab">
+                                                .. to define models                                                </option>
+                                                                                                       
+                                                <option value="#db9471c00d7c36e309d5aa516644f066" data-target="#db9471c00d7c36e309d5aa516644f066" data-toggle="tab">
+                                                .. to define a Controller                                                </option>
+                                                                                                       
+                                                <option value="#2a1b922808dd089eedbbbe94b97b838f" data-target="#2a1b922808dd089eedbbbe94b97b838f" data-toggle="tab">
+                                                .. to go REST                                                </option>
+                                                                                                       
+                                                <option value="#e9e049254c14759db7874139770176e5" data-target="#e9e049254c14759db7874139770176e5" data-toggle="tab">
+                                                .. to authenticate the User                                                </option>
+                                                                                                       
+                                                <option value="#1320882bcc2d60531abdfbef4b5f34ee" data-target="#1320882bcc2d60531abdfbef4b5f34ee" data-toggle="tab">
+                                                .. to send an Email                                                </option>
+                                                                                      
+
+                                    </select>                                      
+                                    <hr size="1" />
+                                    <div class="tab-content">
+                                                                                                                        <div class="tab-pane active" id="e405d234978dabab6a963de5fc8baf74">
+                                                                                            <p>Sorry, no description yet. </p>
+                                            
+                                                                                            <p><pre class='prettyprint linenums languague-php'>
+//controllers/UserController.php
+{
+    $user = $this->User->find('first', array(
+        'conditions' => array(
+            'User.id' => 7
+        )
+    ));
+}
+</pre></p>
+                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="751555f04230a22176371948863533a9">
+                                                                                            <p>Sorry, no description yet. </p>
+                                            
+                                                                                            <p><pre class='prettyprint linenums languague-php'>
+//app/Config/database.php
+class DATABASE_CONFIG {
+    public $default = array(
+        'datasource'  => 'Database/Mysql',
+        'persistent'  => false,
+        'host'        => 'localhost',
+        'login'       => 'jungle',
+        'password'    => 'elgnuj',
+        'database'    => 'jungle',
+    );
+}
+</pre></p>
+                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="7e8ba4e41413029da7e56db4c4e76fa6">
+                                                                                            <p>test</p>
+                                            
+                                                                                            <p><pre class='prettyprint linenums languague-php'>
+//controllers/UserController.php
+{
+    $count = $this->User->find('count');
+
+    echo sprintf(__('Hello %s !',true), 'Josh');
+    echo sprintf(
+        __('There is ') . ' %s' . __n('user', 'users', $count) . __(' logged in'),
+        $count;
+    );
+    //Hello Josh! There is 5 users logged in
+}
+</pre></p>
+                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="6e5f07fc4ce0e08e801000dbe25eff53">
+                                                                                            <p>You need to first <a href="">define a model</a> and <a href="">define the model relations</a>.</p>
+                                            
+                                                                                            <p><pre class='prettyprint linenums languague-php'>
+//controllers/UserController.php
+{
+    $user = $this->User->find('first', array(
+        'attributes' => array(
+            'id' => '7'
+        )
+    ));
+
+    print_r($user['Posts']); //User hasMany Posts
+    print_r($user['Posts'][0]['Tags']); //Post hasAndBelongsToMany Tags
+}
+</pre></p>
+                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="74f9fac8bd589bbbcc186d1a1851ef9b">
+                                                                                            <p>Sorry, no description yet. </p>
+                                            
+                                                                                            <p>Sorry, no code snippet yet. </p>
+                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="e72efb39da51802117d2bba63388ebb3">
+                                                                                            <p>Sorry, no description yet. </p>
+                                            
+                                                                                            <p>Sorry, no code snippet yet. </p>
+                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="1eed0b9d692f8372f52217797a2156a8">
+                                                                                            <p>Sorry, no description yet. </p>
+                                            
+                                                                                            <p>Sorry, no code snippet yet. </p>
+                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="6341d3c3d3900d526bc7ab84e1f847a3">
+                                                                                            <p>Sorry, no description yet. </p>
+                                            
+                                                                                            <p>Sorry, no code snippet yet. </p>
+                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="c5c8ec940f42731e8bfb64048086487b">
+                                                                                            <p>Sorry, no description yet. </p>
+                                            
+                                                                                            <p>Sorry, no code snippet yet. </p>
+                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="8e61ea70297d6a85a8173c767b082174">
+                                                                                            <p>This example shows not only a basic related models definition, but also validation rules matching our ERD diagram.</p>
+                                            
+                                                                                            <p><pre class='prettyprint linenums languague-php'>
+//models/user.php
+class User extends AppModel {
+
+    public $validate = array(
+        'email' => array(
+            'isUnique' => array(
+                'rule'     => 'isUnique',
+                'message'  => 'This email is already used.'
+            ),
+            'email' => array(
+                'rule'    => 'email',
+                'message' => 'Enter a valid email.'
+            )
+        ),
+        'password' => array(
+            'rule'    => array('minLength', '8'),
+            'message' => 'Minimum 8 characters long'
+        ),
+    );
+    public $hasMany = array(
+        'Post' => array(
+                'className' => 'Post',
+                'foreignKey' => 'user_id',
+        )
+    );
+}
+//models/post.php
+class Post extends AppModel {
+    public $validate = array(
+        'name' => array(
+            'rule'    => array('minLength', '3'),
+        ),
+        'content' => array(
+            'rule'    => array('minLength', '3'),
+            'message' => 'Minimum 3 characters long'
+        ),
+    );
+
+     public $hasAndBelongsToMany = array(
+        'Tag' => array(
+            'className'              => 'Tag',
+            'joinTable'              => 'post_tags',
+            'foreignKey'             => 'post_id',
+            'associationForeignKey'  => 'tag_id',
+            'unique'                 => true,
+        )
+    );
+
+    //or simply 
+    //public $hasAndBelongsToMany = array('Tag');
+
+    public $belongsTo = array(
+        'User' => array(
+            'className'    => 'User',
+            'foreignKey'   => 'user_id'        
+        )
+    );
+}
+//models/tag.php
+class Tag extends AppModel {
+
+    public $hasAndBelongsToMany = array(
+        'Post' => array(
+            'className'              => 'Post',
+            'joinTable'              => 'post_tags',
+            'foreignKey'             => 'tag_id',
+            'associationForeignKey'  => 'post_id',
+            'unique'                 => true,
+        )
+    );
+    
+    //or simply 
+    //public $hasAndBelongsToMany = array('Post');
+}
+</pre></p>
+                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="db9471c00d7c36e309d5aa516644f066">
+                                                                                            <p>Sorry, no description yet. </p>
+                                            
+                                                                                            <p>Sorry, no code snippet yet. </p>
+                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="2a1b922808dd089eedbbbe94b97b838f">
+                                                                                            <p>Sorry, no description yet. </p>
+                                            
+                                                                                            <p>Sorry, no code snippet yet. </p>
+                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="e9e049254c14759db7874139770176e5">
+                                                                                            <p>Sorry, no description yet. </p>
+                                            
+                                                                                            <p>Sorry, no code snippet yet. </p>
+                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="1320882bcc2d60531abdfbef4b5f34ee">
+                                                                                            <p>Sorry, no description yet. </p>
+                                            
+                                                                                            <p>Sorry, no code snippet yet. </p>
+                                                                                    </div>
+                                                                             </div>
+                                </div>
+                                </div>
+                                                                                                                
+                                                        
+                            <div class="tab-pane" id="bcb945ff7d16aeadf1678016ad1504b4">   
+                                <div class="tabbable">
+                                    <select class="chosen" style="width:400px;">
+                                         <option></option>
+                                                                                                    
+                                                <option value="#42dea48ef48d2deff792eec99e23ee31" data-target="#42dea48ef48d2deff792eec99e23ee31" data-toggle="tab">
+                                                .. to get a specified record from database                                                </option>
+                                                                                                       
+                                                <option value="#2e06065ce371608dbb801ca7a94a14d3" data-target="#2e06065ce371608dbb801ca7a94a14d3" data-toggle="tab">
+                                                .. to connect to the database                                                </option>
+                                                                                                       
+                                                <option value="#c8323d5884c3aca6b0fecca50e5497e5" data-target="#c8323d5884c3aca6b0fecca50e5497e5" data-toggle="tab">
+                                                .. to translate my application                                                </option>
+                                                                                                       
+                                                <option value="#3093e86be8961e8fde7ea477ad6a20f1" data-target="#3093e86be8961e8fde7ea477ad6a20f1" data-toggle="tab">
+                                                .. to improve performance                                                </option>
+                                                                                                       
+                                                <option value="#0acc9ce77f47ef1090691f2c70b94e26" data-target="#0acc9ce77f47ef1090691f2c70b94e26" data-toggle="tab">
+                                                .. to find related records                                                </option>
+                                                                                                       
+                                                <option value="#ffedf4149a1d08624df35f89686a0c47" data-target="#ffedf4149a1d08624df35f89686a0c47" data-toggle="tab">
+                                                .. to save related records                                                </option>
+                                                                                                       
+                                                <option value="#b1afd584bd489cb0157da227e3076bc8" data-target="#b1afd584bd489cb0157da227e3076bc8" data-toggle="tab">
+                                                .. to validate my record                                                </option>
+                                                                                                       
+                                                <option value="#bde34b5a1ec88fee0a4eb3c673e28efd" data-target="#bde34b5a1ec88fee0a4eb3c673e28efd" data-toggle="tab">
+                                                .. to generate a basic view                                                </option>
+                                                                                                       
+                                                <option value="#9a2594a70c502a71f09d2b0864fc9690" data-target="#9a2594a70c502a71f09d2b0864fc9690" data-toggle="tab">
+                                                .. to change meaning of URLs                                                </option>
+                                                                                                       
+                                                <option value="#21f6140b4f3c708e6bfdab81a069320c" data-target="#21f6140b4f3c708e6bfdab81a069320c" data-toggle="tab">
+                                                .. to have my data cached                                                </option>
+                                                                                                       
+                                                <option value="#c132611417c523baf29d25d576a5ed41" data-target="#c132611417c523baf29d25d576a5ed41" data-toggle="tab">
+                                                .. to define a Model                                                </option>
+                                                                                                       
+                                                <option value="#8750d7ddf89a4c1c92c5f1d4b2f67483" data-target="#8750d7ddf89a4c1c92c5f1d4b2f67483" data-toggle="tab">
+                                                .. to define a Controller                                                </option>
+                                                                                                       
+                                                <option value="#8930c015aa935b55e0417464db152cd2" data-target="#8930c015aa935b55e0417464db152cd2" data-toggle="tab">
+                                                .. to go REST                                                </option>
+                                                                                                       
+                                                <option value="#20406946f84ed5c1514045a08be861d5" data-target="#20406946f84ed5c1514045a08be861d5" data-toggle="tab">
+                                                .. to authenticate the User                                                </option>
+                                                                                                       
+                                                <option value="#60ba0e9f8a1a7ddf5cbaee9da6a6f68d" data-target="#60ba0e9f8a1a7ddf5cbaee9da6a6f68d" data-toggle="tab">
+                                                .. to send an Email                                                </option>
+                                                                                      
+
+                                    </select>                                      
+                                    <hr size="1" />
+                                    <div class="tab-content">
+                                                                                                                        <div class="tab-pane active" id="42dea48ef48d2deff792eec99e23ee31">
+                                                                                            <p>Model ensures that provided data is in the correct format and handles business logic. <br />
+                    Usually represents a database table (another example would be Model as REST service).</p>
+                                            
+                                                                                            <p><script src="https://gist.github.com/3743496.js"> </script></p>
+                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="2e06065ce371608dbb801ca7a94a14d3">
+                                                                                            <p>Sorry, no description yet. </p>
+                                            
+                                                                                            <p>Sorry, no code snippet yet. </p>
+                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="c8323d5884c3aca6b0fecca50e5497e5">
+                                                                                            <p>Sorry, no description yet. </p>
+                                            
+                                                                                            <p>Sorry, no code snippet yet. </p>
+                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="3093e86be8961e8fde7ea477ad6a20f1">
+                                                                                            <p>Sorry, no description yet. </p>
+                                            
+                                                                                            <p>Sorry, no code snippet yet. </p>
+                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="0acc9ce77f47ef1090691f2c70b94e26">
+                                                                                            <p>Sorry, no description yet. </p>
+                                            
+                                                                                            <p>Sorry, no code snippet yet. </p>
+                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="ffedf4149a1d08624df35f89686a0c47">
+                                                                                            <p>Sorry, no description yet. </p>
+                                            
+                                                                                            <p>Sorry, no code snippet yet. </p>
+                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="b1afd584bd489cb0157da227e3076bc8">
+                                                                                            <p>Sorry, no description yet. </p>
+                                            
+                                                                                            <p>Sorry, no code snippet yet. </p>
+                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="bde34b5a1ec88fee0a4eb3c673e28efd">
+                                                                                            <p>Sorry, no description yet. </p>
+                                            
+                                                                                            <p>Sorry, no code snippet yet. </p>
+                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="9a2594a70c502a71f09d2b0864fc9690">
+                                                                                            <p>Sorry, no description yet. </p>
+                                            
+                                                                                            <p>Sorry, no code snippet yet. </p>
+                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="21f6140b4f3c708e6bfdab81a069320c">
+                                                                                            <p>Sorry, no description yet. </p>
+                                            
+                                                                                            <p>Sorry, no code snippet yet. </p>
+                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="c132611417c523baf29d25d576a5ed41">
+                                                                                            <p>Sorry, no description yet. </p>
+                                            
+                                                                                            <p>Sorry, no code snippet yet. </p>
+                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="8750d7ddf89a4c1c92c5f1d4b2f67483">
+                                                                                            <p>Sorry, no description yet. </p>
+                                            
+                                                                                            <p>Sorry, no code snippet yet. </p>
+                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="8930c015aa935b55e0417464db152cd2">
+                                                                                            <p>Sorry, no description yet. </p>
+                                            
+                                                                                            <p>Sorry, no code snippet yet. </p>
+                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="20406946f84ed5c1514045a08be861d5">
+                                                                                            <p>Sorry, no description yet. </p>
+                                            
+                                                                                            <p>Sorry, no code snippet yet. </p>
+                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="60ba0e9f8a1a7ddf5cbaee9da6a6f68d">
+                                                                                            <p>Sorry, no description yet. </p>
+                                            
+                                                                                            <p>Sorry, no code snippet yet. </p>
+                                                                                    </div>
+                                                                             </div>
+                                </div>
+                                </div>
+                                                    </div>
+                    </div>
+                                                        
+                    <p class="urls">
+                                            </p>
+
+                    <h2 id="Yii">Yii</h2>
+
+
+                    <div class="tabbable tabs-left">
+                        <ul class="nav nav-tabs">
+                                                                                        <li class="active"><a href="#ad50a4f654e94165b93a8bd30d63e65f" data-toggle="tab">1.1</a></li>
+                            
+                        </ul>
+
+                        <div class="tab-content">       
+                                                                                                                
+                                                        
+                            <div class="tab-pane active" id="ad50a4f654e94165b93a8bd30d63e65f">   
+                                <div class="tabbable">
+                                    <select class="chosen" style="width:400px;">
+                                         <option></option>
+                                                                                                    
+                                                <option value="#fcc99df83be91bedf5557a3331299776" data-target="#fcc99df83be91bedf5557a3331299776" data-toggle="tab">
+                                                .. to get a specified record from database                                                </option>
+                                                                                                       
+                                                <option value="#a4f868596066faeb6f7dd021557eb1a3" data-target="#a4f868596066faeb6f7dd021557eb1a3" data-toggle="tab">
+                                                .. to connect to the database                                                </option>
+                                                                                                       
+                                                <option value="#d62dfca704930af5c146836ab53d4142" data-target="#d62dfca704930af5c146836ab53d4142" data-toggle="tab">
+                                                .. to translate my application                                                </option>
+                                                                                                       
+                                                <option value="#c07a290c13da82121467842820bc07bb" data-target="#c07a290c13da82121467842820bc07bb" data-toggle="tab">
+                                                .. to find related records                                                </option>
+                                                                                                       
+                                                <option value="#81a4a994e4725cf729a19b3a5b999c88" data-target="#81a4a994e4725cf729a19b3a5b999c88" data-toggle="tab">
+                                                .. to save related records                                                </option>
+                                                                                                       
+                                                <option value="#007f4f80cc47f00dcb19813232e67841" data-target="#007f4f80cc47f00dcb19813232e67841" data-toggle="tab">
+                                                .. to validate my record                                                </option>
+                                                                                                       
+                                                <option value="#a4f0e3145cfdff8d0bcf0b55cc94adb6" data-target="#a4f0e3145cfdff8d0bcf0b55cc94adb6" data-toggle="tab">
+                                                .. to generate a basic view                                                </option>
+                                                                                                       
+                                                <option value="#9d0c260a5a6a92b1a400d6fafda8ffe4" data-target="#9d0c260a5a6a92b1a400d6fafda8ffe4" data-toggle="tab">
+                                                .. to change meaning of URLs                                                </option>
+                                                                                                       
+                                                <option value="#e1a2bb6bd0398d6d7a0ef4068686a195" data-target="#e1a2bb6bd0398d6d7a0ef4068686a195" data-toggle="tab">
+                                                .. to have my data cached                                                </option>
+                                                                                                       
+                                                <option value="#aeb2472a4fe9c28b3f3b911bdbec10ba" data-target="#aeb2472a4fe9c28b3f3b911bdbec10ba" data-toggle="tab">
+                                                .. to define models                                                </option>
+                                                                                                       
+                                                <option value="#e0bb7328ee4ef3324d5e8965bbd4c8ca" data-target="#e0bb7328ee4ef3324d5e8965bbd4c8ca" data-toggle="tab">
+                                                .. to define a Controller                                                </option>
+                                                                                                       
+                                                <option value="#c40dbc4c023e6e090ddaae628ae2838e" data-target="#c40dbc4c023e6e090ddaae628ae2838e" data-toggle="tab">
+                                                .. to go REST                                                </option>
+                                                                                                       
+                                                <option value="#9e3320050d8efe75ce51279de1af3d04" data-target="#9e3320050d8efe75ce51279de1af3d04" data-toggle="tab">
+                                                .. to authenticate the User                                                </option>
+                                                                                                       
+                                                <option value="#b345782aaf5df1a13f43b6cb82d874c8" data-target="#b345782aaf5df1a13f43b6cb82d874c8" data-toggle="tab">
+                                                .. to send an Email                                                </option>
+                                                                                      
+
+                                    </select>                                      
+                                    <hr size="1" />
+                                    <div class="tab-content">
+                                                                                                                        <div class="tab-pane active" id="fcc99df83be91bedf5557a3331299776">
+                                                                                            <p>Sorry, no description yet. </p>
+                                            
+                                                                                            <p><pre class='prettyprint linenums languague-php'>
+//controllers/UserController.php
+{
+    $user = User::model()->findByPk(7);
+    //or
+    $user = User::model()->findByAttributes(array(
+        'user_id' => 7
+    ));
+}
+</pre></p>
+                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="a4f868596066faeb6f7dd021557eb1a3">
+                                                                                            <p>Sorry, no description yet. </p>
+                                            
+                                                                                            <p><pre class='prettyprint linenums languague-php'>
+//config/main.php
+return array(
+    'db' => array(
+        'connectionString' => 'mysql:host=localhost;dbname=jungle',
+        'emulatePrepare' => true,
+        'username' => 'jungle',
+        'password' => 'elgnuj',
+        'charset' => 'utf8',
+    ),
+    // ...
+);
+</pre></p>
+                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="d62dfca704930af5c146836ab53d4142">
+                                                                                            <p>Sorry, no description yet. </p>
+                                            
+                                                                                            <p><pre class='prettyprint linenums languague-php'>
+//controllers/UserController.php
+{
+    $count = User::model()->count();
+
+    echo sprintf( Yii::t('system', 'Hello %s !'), 'Josh' );
+    
+    echo  
+        Yii::t('system', 'There is') . 
+        Yii::t('system', 'n==1#one user|n>1# {n} users',array($count)) . 
+        Yii::t('system', ' logged in')
+    ;  
+    //Hello Josh! There is 5 users logged in
+
+}
+</pre></p>
+                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="c07a290c13da82121467842820bc07bb">
+                                                                                            <p>You need to first <a href="">define a model</a> and <a href="">define the model relations</a>.</p>
+                                            
+                                                                                            <p><pre class='prettyprint linenums languague-php'>
+//controllers/UserController.php
+{
+    $user = User::model()->findByPk(7);
+
+    print_r($user->posts); //User hasMany Posts
+    print_r($user->posts[0]->tags); //Post hasAndBelongsToMany Tags
+}
+</pre></p>
+                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="81a4a994e4725cf729a19b3a5b999c88">
+                                                                                            <p>Sorry, no description yet. </p>
+                                            
+                                                                                            <p>Sorry, no code snippet yet. </p>
+                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="007f4f80cc47f00dcb19813232e67841">
+                                                                                            <p>Sorry, no description yet. </p>
+                                            
+                                                                                            <p>Sorry, no code snippet yet. </p>
+                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="a4f0e3145cfdff8d0bcf0b55cc94adb6">
+                                                                                            <p>Sorry, no description yet. </p>
+                                            
+                                                                                            <p>Sorry, no code snippet yet. </p>
+                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="9d0c260a5a6a92b1a400d6fafda8ffe4">
+                                                                                            <p>Sorry, no description yet. </p>
+                                            
+                                                                                            <p>Sorry, no code snippet yet. </p>
+                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="e1a2bb6bd0398d6d7a0ef4068686a195">
+                                                                                            <p>Sorry, no description yet. </p>
+                                            
+                                                                                            <p>Sorry, no code snippet yet. </p>
+                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="aeb2472a4fe9c28b3f3b911bdbec10ba">
+                                                                                            <p>This example shows not only a basic related models definition, but also validation rules matching our ERD diagram.</p>
+                                            
+                                                                                            <p><pre class='prettyprint linenums languague-php'>
+//models/user.php
+class User extends CActiveRecord {   
+
+    public static function model($className=__CLASS__)
+    {
+        return parent::model($className);
+    }
+ 
+    public function relations()
+    {
+        return array(
+            'posts' => array(self::HAS_MANY, 'Post', 'user_id'),
+        );
+    }
+
+    public function rules()
+    {
+        return array(
+            array('email, password', 'required'),
+            array('email', 'email'),
+            array('email','unique'),
+            array('password', 'authenticate'),
+            array('password','length','min'=>8,'max'=>45),
+        );
+    }
+}
+//models/post.php
+class Post extends CActiveRecord {
+
+    public function rules()
+    {
+        return array(
+            array('name, content', 'required'),
+            array('name','length','min'=>3,'max'=>45),
+            array('content','length','min'=>3,'max'=>2000),
+        );
+    }
+
+    public function relations()
+    {
+        return array(
+            'tags' => array(self::MANY_MANY, 'Tag', 'posts_tags(post_id, tag_id)'),
+            'user' => array(self::BELONGS_TO, 'User', 'user_id')
+        );
+    }
+}
+//models/tag.php
+class Tag extends CActiveRecord {
+
+    public function relations()
+    {
+        return array(
+            'posts' => array(self::MANY_MANY, 'Post', 'posts_tags(post_id, tag_id)'),
+        );
+    }
+}
+</pre></p>
+                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="e0bb7328ee4ef3324d5e8965bbd4c8ca">
+                                                                                            <p>Sorry, no description yet. </p>
+                                            
+                                                                                            <p>Sorry, no code snippet yet. </p>
+                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="c40dbc4c023e6e090ddaae628ae2838e">
+                                                                                            <p>Sorry, no description yet. </p>
+                                            
+                                                                                            <p>Sorry, no code snippet yet. </p>
+                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="9e3320050d8efe75ce51279de1af3d04">
+                                                                                            <p>Sorry, no description yet. </p>
+                                            
+                                                                                            <p>Sorry, no code snippet yet. </p>
+                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="b345782aaf5df1a13f43b6cb82d874c8">
+                                                                                            <p>Sorry, no description yet. </p>
+                                            
+                                                                                            <p>Sorry, no code snippet yet. </p>
+                                                                                    </div>
+                                                                             </div>
+                                </div>
+                                </div>
+                                                    </div>
+                    </div>
+                                
+            </div> 
+            <hr />
+            <footer>
+                <p>
+                Thanks to <a href="http://ww5.iconsmaster.com/">iconmaster</a> for great panda icon, and to <a href="http://twitter.github.com/bootstrap/">twitter</a> that we don't need to handle the design.
+                <br />
+                
+                <strong>PHP: The framework jungle</strong> by <a href="http://about.me/mailo">Marcin Wawrzyniak (mailo)</a> is licensed under 
+                <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>
+                </p>
+            </footer>
+        </div>
+        <!-- /container -->
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.1.min.js"><\/script>')</script>
+        <script src="js/chosen.jquery.js"></script>
+        <script src="js/vendor/bootstrap.min.js"></script>
+        <script src="js/main.js"></script>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+        <script>
+        $(document).ready(function(){
+            prettyPrint();
+            $(".chosen").data("placeholder","Pick up a scenario! What do I need to do.. ").chosen().change(function(e){
+                e.preventDefault();
+                var id = ($(this).find('option:selected'));
+                $(id).tab('show');
+            });
+        });
+        </script>
+    </body>
+</html>
+
