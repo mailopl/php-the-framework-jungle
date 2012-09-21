@@ -192,7 +192,8 @@ $firstFramework = array_shift(array_keys($frameworks));
         </script>
     </body>
 </html>
+
 <?php 
     $content = ob_get_contents();
-    file_put_contents("index.compiled.html", preg_replace('/\s+/', ' ', $content));
+    file_put_contents("index.html",$content);
 ?>
