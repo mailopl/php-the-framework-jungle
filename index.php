@@ -17,8 +17,6 @@ foreach ($iterator as $fileinfo) {
         $key = array_keys($framework); 
         $key = $key[0];
         $frameworks[$key] = $framework[$key];
-        //$firstVersion = array_shift(array_keys($framework[$key]['versions']));
-        //$toJsonify[$key] = array_keys($framework[$key]['versions'][$firstVersion]);
     }
 }
 $firstFramework = array_shift(array_keys($frameworks));
@@ -46,17 +44,12 @@ $firstFramework = array_shift(array_keys($frameworks));
         <link rel="stylesheet" href="css/chosen.css" />
 
         
+        <link href="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.css" type="text/css" rel="stylesheet" />
+        <script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.js"></script>
+
+
         <link rel="shortcut icon" href="favicon.png">
         <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
-        
-        <?php /*
-        <script type="text/javascript">
-        var autocomplete = {
-            <?php foreach($toJsonify as $name => $data): ?>
-                <?php echo $name ?> : <?php echo json_encode($data) ?>,
-            <?php endforeach ?>
-        };
-        </script>*/ ?>
     </head>
     <body>
         <a class="fork-me" href="https://github.com/mailopl/php-the-framework-jungle">
@@ -111,7 +104,7 @@ $firstFramework = array_shift(array_keys($frameworks));
                         <?php endif ?>
                     </p>
 
-                    <h2 id="<?php echo $name ?>"><?php /*<img src="<?php echo $data['logo'] ?>" />*/ ?><?php echo $name ?></h2>
+                    <h2 id="<?php echo $name ?>"><?php echo $name ?></h2>
 
 
                     <div class="tabbable tabs-left">
@@ -136,29 +129,13 @@ $firstFramework = array_shift(array_keys($frameworks));
                                          <option></option>
                                          <?php foreach($data['versions'][$version] as $title =>$internalData): ?>
                                                 <?php $tabId = md5($name . $version . $title); ?>           
-                                                <option rel="#<?php echo $tabId ?>" data-toggle="tab">
+                                                <option value="#<?php echo $tabId ?>" data-target="#<?php echo $tabId ?>" data-toggle="tab">
                                                 <?php echo $title ?>
                                                 </option>
                                             <?php endforeach ?>
                                           
 
-                                        </select>
-                                        <?php /*
-                                        <li class="dropdown">
-                                            <a class="dropdown-toggle" id="drop-<?php echo $versionId ?>" role="button" data-toggle="dropdown" href="#">What do I need to do... <b class="caret"></b></a>
-                
-                                            <ul  class="dropdown-menu" role="menu" aria-labelledby="drop-<?php echo $versionId?>">
-                                            <?php foreach($data['versions'][$version] as $title =>$internalData): ?>
-                                                <?php $tabId = md5($name . $version . $title); ?>           
-                                                <li role="menuitem" <?php echo $title == $firstTitle ? 'class="active"' : null ?>>
-                                                    <a tabindex="-1" href="#<?php echo $tabId ?>" data-toggle="tab">
-                                                        <?php echo $title ?>
-                                                    </a>
-                                                </li>
-                                            <?php endforeach ?>
-                                            </ul>
-                                          </li>*/ ?>
-                                   
+                                    </select>                                      
                                     <hr size="1" />
                                     <div class="tab-content">
                                         <?php foreach($data['versions'][$version] as $title =>$otherData): ?>
@@ -167,13 +144,13 @@ $firstFramework = array_shift(array_keys($frameworks));
                                             <?php if(!empty($otherData['content'])): ?>
                                                 <p><?php echo nl2br($otherData['content']) ?></p>
                                             <?php else: ?>
-                                                <p>Sorry, no description. <?php echo join('', array_rand(range('a','z'),6)) ?></p>
+                                                <p>Sorry, no description yet. </p>
                                             <?php endif ?>
 
                                             <?php if(!empty($otherData['gist'])): ?>
                                                 <p><?php echo $otherData['gist'] ?></p>
                                             <?php else: ?>
-                                                <p>Sorry, no code snippet. <?php echo join('', array_rand(range('a','z'),6)) ?></p>
+                                                <p>Sorry, no code snippet yet. </p>
                                             <?php endif ?>
                                         </div>
                                          <?php endforeach ?>
@@ -202,20 +179,20 @@ $firstFramework = array_shift(array_keys($frameworks));
         <script src="js/vendor/bootstrap.min.js"></script>
         <script src="js/main.js"></script>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-        <?php /*
-        <script>jQuery('ul.nav li.dropdown').hover(function() {
-  jQuery(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn();
-}, function() {
-  jQuery(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut();
-});</script>*/ ?>
         <script>
         $(document).ready(function(){
-            $(".chosen").data("placeholder","Pick up a scenario! What do I need to do.. ").chosen();
+            prettyPrint();
+            $(".chosen").data("placeholder","Pick up a scenario! What do I need to do.. ").chosen().change(function(e){
+                e.preventDefault();
+                var id = ($(this).find('option:selected'));
+                console.log("showing: " + $(id).val());
+                $(id).tab('show');
+            });
         });
         </script>
     </body>
 </html>
 <?php 
     $content = ob_get_contents();
-    file_put_contents("compiled.jungle.html", preg_replace('/\s+/', ' ', $content));
+    file_put_contents("index.compiled.html", preg_replace('/\s+/', ' ', $content));
 ?>
