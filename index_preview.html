@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8" />
+        <title>PHP: The framework jungle</title>
+        <meta name="description" content="When it comes to a frameworks in PHP, this is a jungle. Ruby has Rails, PHP has Symfony2, ZF, CakePHP, Yii, Laravel. Here you have everything you need, to choose the right one for you." />
+        <meta name="robots" content="index,follow,archive"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        <meta property="og:image" content="./img/typical_panda_nothing_fancy.png"/>
+        <meta property="og:title" content="PHP: The Framework Jungle"/>
+        <meta property="og:description" content="When it comes to a frameworks in PHP, this is a jungle. Ruby has Rails, PHP has Symfony2, ZF, CakePHP, Yii, Laravel. Here you have everything you need, to choose the right one for you."/>
+        <meta property="og:url" content="http://www.php-jungle.com"/>
+        <meta property="og:site_name" content="PHP: The Framework Jungle"/>
+        <meta property="og:type" content="website"/>
+        
+        <link rel="stylesheet" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
+        <link rel="stylesheet" href="css/main.css" />
+        <link rel="stylesheet" href="css/chosen.css" />
+
+        
+        <link href="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.css" type="text/css" rel="stylesheet" />
+        <script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.js"></script>
+
+
+        <link rel="shortcut icon" href="favicon.png">
+        <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+    </head>
+    <body>
+        <a class="fork-me" href="https://github.com/mailopl/php-the-framework-jungle">
+            <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub">
+        </a>
+
+
+        <div class="interesting-header">
+            <img src="./img/typical_panda_nothing_fancy.png" alt="Our panda logo!"/>
+            
+        </div>
+
+        <div class="container">
+                <h1 class="show-text">What &amp; how ?</h1>
+                <h1 class="show-text" style="display:none">Ok, I get it...</h1>
+                
+                <div class="hide-me">
+                    <p class="explain-me">phpjungle.org Panda tells you, how to do <b>X</b> thing in <b>Y</b> framework </p>
+                </div>
+                
+                <div class="hide-me" style="display:none">
+                    
+                        <p><strong>Welcome, in the framework jungle!</strong></p>
+                        <p>There's no Rails for PHP. </p>
+                        <p>There's Symfony2, ZF2, CakePHP, Yii, Kohana, CodeIgniter, Laravel... and the list goes on. <br /><br />
+                        What do <strong>ALL</strong> of these frameworks have in common ? <b>Scenarios</b> in which you will use them.</p>
+                        <p>For example, <b>user authentication</b>. It doesn't matter if you use Symfony2 or Laravel, if you need some  <br />
+                        badass authentication - you can do it in any of them.
+                        </p>
+                        <p>This site is build to help you spot differences between frameworks. </p>
+                        <p>How does REST look like in CakePHP ? Symfony? <br />
+                        We hope you find a way out of this jungle and pick a framework that suits your needs and sense of aesthetics.</p>
+                        <p>
+                        We use <a href="img/erd.png" target="_blank">this database schema <img src="img/database.png" alt="ERD"/></a>. <br />
+                        Using that schema, we created business rules, common routes (like http://domain.com/users/new) and few other common factors.
+                    </p>
+                    
+                </div>
+
+            <ul class="nav nav-pills">
+                                    <li class="active">
+                        <a href="#CakePHP">CakePHP</a>
+                    </li>
+                                    <li class="">
+                        <a href="#Yii">Yii</a>
+                    </li>
+                     
+                <li class="tweet"> 
+                    <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://phpjungle.org" data-count="none" data-hashtags="php">Tweet</a>
+                </li>
+            </ul>
+            
+            <div class="well">
+                                                        
+                    
+                    <ul class="urls nav nav-pills">
+                                                                                  <li>  <a target="_blank" href="http://cakephp.org">Official website</a></li>
+                                                          <li>  <a target="_blank" href="http://book.cakephp.org">Official docs</a></li>
+                                                                        </ul>
+                    
+
+                    <h2 id="CakePHP">CakePHP</h2>
+
+
+                    <div class="tabbable tabs-left">
+                        <ul class="nav nav-tabs">
+                                                                                        <li class="active"><a href="#b4d7c81954d2eeaf185191355ee02fa9" data-toggle="tab">2.2</a></li>
+                                                    </ul>
+
+                        <div class="tab-content">       
+                                                                                                                
+                                                        
+                            <div class="tab-pane active" id="b4d7c81954d2eeaf185191355ee02fa9">   
+                                <div class="tabbable">
+                                    <select class="chosen" style="width:400px;">
+                                         <option></option>
+                                                                                                    
+                                                <option value="#e405d234978dabab6a963de5fc8baf74" data-target="#e405d234978dabab6a963de5fc8baf74" data-toggle="tab">
+                                                .. to get a specified record from database                                                </option>
+                                                                                                       
+                                                <option value="#1ab552ee8d17f8b1065507503b8b5f6b" data-target="#1ab552ee8d17f8b1065507503b8b5f6b" data-toggle="tab">
+                                                .. to connect to a database                                                </option>
+                                                                                                       
+                                                <option value="#7e8ba4e41413029da7e56db4c4e76fa6" data-target="#7e8ba4e41413029da7e56db4c4e76fa6" data-toggle="tab">
+                                                .. to translate my application                                                </option>
+                                                                                                       
+                                                <option value="#91bc2e143b13f89b051a8cfda6183c32" data-target="#91bc2e143b13f89b051a8cfda6183c32" data-toggle="tab">
+                                                .. to fetch related records                                                </option>
+                                                                                                       
+                                                <option value="#74f9fac8bd589bbbcc186d1a1851ef9b" data-target="#74f9fac8bd589bbbcc186d1a1851ef9b" data-toggle="tab">
+                                                .. to save related records                                                </option>
+                                                                                                       
+                                                <option value="#61b90596f67ecc9b095ba71a812192c8" data-target="#61b90596f67ecc9b095ba71a812192c8" data-toggle="tab">
+                                                .. to validate my model                                                </option>
+                                                                                                       
+                                                <option value="#1eed0b9d692f8372f52217797a2156a8" data-target="#1eed0b9d692f8372f52217797a2156a8" data-toggle="tab">
+                                                .. to generate a basic view                                                </option>
+                                                                                                       
+                                                <option value="#5a409cf14724d03e5be9e7ac79da2e26" data-target="#5a409cf14724d03e5be9e7ac79da2e26" data-toggle="tab">
+                                                .. to have pretty URLs                                                </option>
+                                                                                                       
+                                                <option value="#c5c8ec940f42731e8bfb64048086487b" data-target="#c5c8ec940f42731e8bfb64048086487b" data-toggle="tab">
+                                                .. to have my data cached                                                </option>
+                                                                                                       
+                                                <option value="#8e61ea70297d6a85a8173c767b082174" data-target="#8e61ea70297d6a85a8173c767b082174" data-toggle="tab">
+                                                .. to define models                                                </option>
+                                                                                                       
+                                                <option value="#2a1b922808dd089eedbbbe94b97b838f" data-target="#2a1b922808dd089eedbbbe94b97b838f" data-toggle="tab">
+                                                .. to go REST                                                </option>
+                                                                                                       
+                                                <option value="#e9e049254c14759db7874139770176e5" data-target="#e9e049254c14759db7874139770176e5" data-toggle="tab">
+                                                .. to authenticate the User                                                </option>
+                                                                                                       
+                                                <option value="#1320882bcc2d60531abdfbef4b5f34ee" data-target="#1320882bcc2d60531abdfbef4b5f34ee" data-toggle="tab">
+                                                .. to send an Email                                                </option>
+                                                                                      
+
+                                    </select>                                      
+                                    <hr />
+                                    <div class="tab-content">
+                                                                                                                        <div class="tab-pane" id="e405d234978dabab6a963de5fc8baf74">
+                                                                                            <p>Sorry, no reasonable description yet. </p>
+                                            
+                                                                                            <pre class='prettyprint linenums languague-php'>
+//app/Controller/UserController.php
+{
+    $user = $this->User->find('first', array(
+        'conditions' => array(
+            'User.id' => 7
+        )
+    ));
+    //or using custom SQL
+    $user = $this->User->findUserByMyCustomSql();
+}
+</pre>
+
+<pre class='prettyprint linenums languague-php'>
+//app/Model/User.php
+{
+    return $this->query('SELECT * FROM users WHERE id=?', array(7));
+}
+</pre>                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="1ab552ee8d17f8b1065507503b8b5f6b">
+                                                                                            <p>You just need to set your config data, and you are good to go.</p>
+                                            
+                                                                                            <pre class='prettyprint linenums languague-php'>
+//app/Config/database.php
+class DATABASE_CONFIG {
+    public $default = array(
+        'datasource'  => 'Database/Mysql',
+        'persistent'  => false,
+        'host'        => 'localhost',
+        'login'       => 'jungle',
+        'password'    => 'elgnuj',
+        'database'    => 'jungle',
+    );
+}
+</pre>                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="7e8ba4e41413029da7e56db4c4e76fa6">
+                                                                                            <p>CakePHP uses double underscore and __n() functions to provide easy localization.</p>
+                                            
+                                                                                            <pre class='prettyprint linenums languague-php'>
+//app/Controller/UserController.php
+{
+    $count = $this->User->find('count');
+
+    echo sprintf(__('Hello %s !',true), 'Josh');
+    echo sprintf(
+        __('There are ') . ' %s' . __n('user', 'users', $count) . __(' logged in'),
+        $count;
+    );
+    //Hello Josh! There are 5 users logged in
+}
+</pre>                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="91bc2e143b13f89b051a8cfda6183c32">
+                                                                                            <p>You need to first define a model and proper relations and then you just:</p>
+                                            
+                                                                                            <pre class='prettyprint linenums languague-php'>
+//app/Controller/UserController.php
+{
+    $user = $this->User->find('first', array(
+        'attributes' => array(
+            'id' => '7'
+        )
+    ));
+
+    print_r($user['Posts']); //user posts
+    print_r($user['Posts'][0]['Tags']); //tags related to particular post
+}
+</pre>                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="74f9fac8bd589bbbcc186d1a1851ef9b">
+                                                                                            <p>In CakePHP saving related records is super easy as you can see below.</p>
+                                            
+                                                                                            <pre class='prettyprint linenums languague-html'>
+//app/View/Post/add.ctp
+echo $this->Form->create('Post');
+    echo $this->Form->input('name');
+    echo $this->Form->input('content');
+    echo $this->Form->input('Tag'); //creates multi-select field
+    echo $this->Form->input('User'); //creates select field for belongs_to relation
+echo $this->Form->end('Save');
+</pre>
+
+<pre class='prettyprint linenums languague-php'>
+//app/Controller/PostsController.php
+public function add()
+{
+    if ($this->request->is('post')) {
+        
+        if ($this->Post->save($this->request->data)) {
+            //success
+        }
+    }
+
+    $this->set('tags', $this->Post->Tag->find('list'));
+    $this->set('users', $this->Post->User->find('list'));
+}
+</pre>                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="61b90596f67ecc9b095ba71a812192c8">
+                                                                                            <p>Sorry, no reasonable description yet. </p>
+                                            
+                                                                                            <pre class='prettyprint linenums languague-php'>
+//app/Model/User.php
+public $validate = array(
+    'email' => array(
+        'isUnique' => array(
+            'rule'     => 'isUnique',
+            'message'  => 'This email is already used.'
+        ),
+        'email' => array(
+            'rule'    => 'email',
+            'message' => 'Enter a valid email.'
+        )
+    ),
+    'password' => array(
+        'rule'    => array('minLength', '8'),
+        'message' => 'Minimum 8 characters long'
+    ),
+);
+
+//app/Model/Post.php
+public $validate = array(
+    'name' => array(
+        'rule'    => array('minLength', '3'),
+    ),
+    'content' => array(
+        'rule'    => array('minLength', '3'),
+        'message' => 'Minimum 3 characters long'
+    ),
+);
+</pre>                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="1eed0b9d692f8372f52217797a2156a8">
+                                                                                            <p>Sorry, no reasonable description yet. </p>
+                                            
+                                                                                            <pre class='prettyprint linenums languague-php'>
+//app/View/Post/index.ctp
+
+echo $this->Html->link(
+    $post['User']['email'], 
+    array(
+        'controller' => 'users', 
+        'action' => 'view', 
+        $post['User']['id']
+    )
+); //url
+
+echo $this->Html->image('logo.png'); //image
+echo $this->Html->script('main.js'); //js
+echo $this->Html->css('style.css'); //css
+</pre>                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="5a409cf14724d03e5be9e7ac79da2e26">
+                                                                                            <p>Sorry, no reasonable description yet. </p>
+                                            
+                                                                                            <pre class='prettyprint linenums languague-php'>
+//app/Config/routes.php
+Router::connect('/people/*', array('controller' => 'users', 'action' => 'index'));
+Router::connect('/guy/:email*', array('controller' => 'users', 'action' => 'view'));
+</pre>                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="c5c8ec940f42731e8bfb64048086487b">
+                                                                                            <p>In CakePHP you can cache queries (in your model) using <a href="http://book.cakephp.org/2.0/en/models/model-attributes.html#cachequeries">$cacheQueries</a> attribute,<br />
+<a href="http://book.cakephp.org/2.0/en/core-libraries/helpers/cache.html">views </a> or any variable using <a href="http://book.cakephp.org/2.0/en/core-libraries/caching.html">Cache</a> class.<br />
+<br />
+CakePHP has built in support for memcache, XCache, APC and Redis.<br />
+</p>
+                                            
+                                                                                            <pre class='prettyprint linenums languague-php'>
+//app/Controller/PostController.php
+{
+    if(!($cachedPosts = Cache::read('cache.post.index'))) {
+        $cachedPosts = $this->Post->find('all');
+        Cache::write('cache.post.index', $cachedPosts);
+    }
+}
+</pre>
+Or in your model:
+<pre class='prettyprint linenums languague-php'>
+//app/Model/Post.php
+public function findLatestPosts()
+{
+    if(!($cachedPosts = Cache::read('cache.post.index'))) {
+        $cachedPosts = $this->find('all');
+        Cache::write('cache.post.index', $cachedPosts);
+    }
+    return $cachedPosts;
+}
+</pre>                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="8e61ea70297d6a85a8173c767b082174">
+                                                                                            <p>Sorry, no reasonable description yet. </p>
+                                            
+                                                                                            <pre class='prettyprint linenums languague-php'>
+//app/Model/User.php
+class User extends AppModel {
+    public $displayField = 'email';
+
+    public $hasMany = array(
+        'Post' => array(
+                'className' => 'Post',
+                'foreignKey' => 'user_id',
+        )
+    );
+}
+//app/Model/Post.php
+class Post extends AppModel {
+    public $hasAndBelongsToMany = array(
+        'Tag' => array(
+            'className'              => 'Tag',
+            'joinTable'              => 'post_tags',
+            'foreignKey'             => 'post_id',
+            'associationForeignKey'  => 'tag_id',
+            'unique'                 => true,
+        )
+    );
+
+    public $belongsTo = array(
+        'User' => array(
+            'className'    => 'User',
+            'foreignKey'   => 'user_id'        
+        )
+    );
+}
+//app/Model/Tag.php
+class Tag extends AppModel {
+
+    public $hasAndBelongsToMany = array(
+        'Post' => array(
+            'className'              => 'Post',
+            'joinTable'              => 'post_tags',
+            'foreignKey'             => 'tag_id',
+            'associationForeignKey'  => 'post_id',
+            'unique'                 => true,
+        )
+    );
+}
+</pre>                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="2a1b922808dd089eedbbbe94b97b838f">
+                                                                                            <p>You need three things - routing, controller and view that generates json data.</p>
+                                            
+                                                                                            <pre class='prettyprint linenums languague-php'>
+//app/Config/routes.php
+Router::mapResources('posts');
+Router::parseExtensions();
+</pre>
+
+<pre class='prettyprint linenums languague-php'>
+//app/Controller/PostsController.php
+class PostsController extends AppController {
+
+    public $components = array('RequestHandler');
+
+    public function index() {
+        $posts = $this->Post->find('all');
+        $this->set(array(
+            'posts' => $posts,
+            '_serialize' => array('post')
+        ));
+    }
+
+    public function view($id) {
+        $post = $this->Post->findById($id);
+        $this->set(array(
+            'post' => $post,
+            '_serialize' => array('post')
+        ));
+    }
+    //...
+}
+</pre>  
+
+<pre class='prettyprint linenums languague-php'>
+//app/View/Post/json/view.ctp
+echo json_encode($post);
+</pre>
+
+<pre class='prettyprint linenums languague-php'>
+//app/View/Post/json/index.ctp
+foreach ($posts as &amp;$post) {
+    unset($post['Post']['user_id']);
+}
+echo json_encode($posts);
+</pre>                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="e9e049254c14759db7874139770176e5">
+                                                                                            <p>CakePHP has built in Auth component so user authentication is super-easy.</p>
+                                            
+                                                                                            <pre class='prettyprint linenums languague-php'>
+//app/Controller/UserController.php
+class UserController extends AppController 
+{
+    public $components = array(
+        'Auth' => array(
+            'username' => 'email' //we change default username field to email since we use it
+        )
+    );  
+    
+    public function login() 
+    {
+        if ($this->request->is('post')) {
+            if ($this->Auth->login()) {
+                return $this->redirect($this->Auth->redirect());
+            } else {
+                die('Username or password is incorrect');
+            }
+        }
+    }
+    
+    public function logout() 
+    {
+        $this->redirect($this->Auth->logout());    
+    }                  
+}
+</pre>
+
+
+<pre class='prettyprint linenums languague-php'>
+//app/View/User/login.ctp
+echo $this->Session->flash('auth');
+echo $this->Form->create('User');
+echo $this->Form->input('email');
+echo $this->Form->input('password');
+echo $this->Form->end('Log in');
+</pre>                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="1320882bcc2d60531abdfbef4b5f34ee">
+                                                                                            <p>CakePHP has built in CakeEmail component for sending emails.</p>
+                                            
+                                                                                            <pre class='prettyprint linenums languague-php'>
+//app/Controller/UserController.php
+public function register() {
+    App::uses('CakeEmail', 'Network/Email');
+
+    //...
+    $email = new CakeEmail();
+    $email
+        ->from(array('admin@phpjungle.org' => 'Jungle Chief'))
+        ->to($_POST['User']['email'])
+        ->subject('Registration')
+        ->send('Registration OK');
+
+    //or in "one" liner:
+    CakeEmail::deliver(
+        $_POST['User']['email'], 
+        'Registration', 
+        'Registration OK', 
+        array('from' => 'admin@phpjungle.org')
+    );
+
+}
+</pre>                                                                                    </div>
+                                                                             </div>
+                                </div>
+                                </div>
+                                                    </div>
+                    </div>
+                                                        
+                    
+                    <ul class="urls nav nav-pills">
+                                                                                  <li>  <a target="_blank" href="http://www.yiiframework.com/">Official website</a></li>
+                                                          <li>  <a target="_blank" href="http://www.yiiframework.com/doc/">Official docs</a></li>
+                                                                        </ul>
+                    
+
+                    <h2 id="Yii">Yii</h2>
+
+
+                    <div class="tabbable tabs-left">
+                        <ul class="nav nav-tabs">
+                                                                                        <li class="active"><a href="#ad50a4f654e94165b93a8bd30d63e65f" data-toggle="tab">1.1</a></li>
+                                                    </ul>
+
+                        <div class="tab-content">       
+                                                                                                                
+                                                        
+                            <div class="tab-pane active" id="ad50a4f654e94165b93a8bd30d63e65f">   
+                                <div class="tabbable">
+                                    <select class="chosen" style="width:400px;">
+                                         <option></option>
+                                                                                                    
+                                                <option value="#fcc99df83be91bedf5557a3331299776" data-target="#fcc99df83be91bedf5557a3331299776" data-toggle="tab">
+                                                .. to get a specified record from database                                                </option>
+                                                                                                       
+                                                <option value="#204510f077ee460929104aedccc7c58b" data-target="#204510f077ee460929104aedccc7c58b" data-toggle="tab">
+                                                .. to connect to a database                                                </option>
+                                                                                                       
+                                                <option value="#d62dfca704930af5c146836ab53d4142" data-target="#d62dfca704930af5c146836ab53d4142" data-toggle="tab">
+                                                .. to translate my application                                                </option>
+                                                                                                       
+                                                <option value="#c11b73807a0b7d74cce2084f8c140398" data-target="#c11b73807a0b7d74cce2084f8c140398" data-toggle="tab">
+                                                .. to fetch related records                                                </option>
+                                                                                                       
+                                                <option value="#81a4a994e4725cf729a19b3a5b999c88" data-target="#81a4a994e4725cf729a19b3a5b999c88" data-toggle="tab">
+                                                .. to save related records                                                </option>
+                                                                                                       
+                                                <option value="#2949115025a4028049cb2b5719609d8e" data-target="#2949115025a4028049cb2b5719609d8e" data-toggle="tab">
+                                                .. to validate my model                                                </option>
+                                                                                                       
+                                                <option value="#a4f0e3145cfdff8d0bcf0b55cc94adb6" data-target="#a4f0e3145cfdff8d0bcf0b55cc94adb6" data-toggle="tab">
+                                                .. to generate a basic view                                                </option>
+                                                                                                       
+                                                <option value="#e43e8b4a29848341e55817781b7e19a5" data-target="#e43e8b4a29848341e55817781b7e19a5" data-toggle="tab">
+                                                .. to have pretty URLs                                                </option>
+                                                                                                       
+                                                <option value="#e1a2bb6bd0398d6d7a0ef4068686a195" data-target="#e1a2bb6bd0398d6d7a0ef4068686a195" data-toggle="tab">
+                                                .. to have my data cached                                                </option>
+                                                                                                       
+                                                <option value="#aeb2472a4fe9c28b3f3b911bdbec10ba" data-target="#aeb2472a4fe9c28b3f3b911bdbec10ba" data-toggle="tab">
+                                                .. to define models                                                </option>
+                                                                                                       
+                                                <option value="#c40dbc4c023e6e090ddaae628ae2838e" data-target="#c40dbc4c023e6e090ddaae628ae2838e" data-toggle="tab">
+                                                .. to go REST                                                </option>
+                                                                                                       
+                                                <option value="#9e3320050d8efe75ce51279de1af3d04" data-target="#9e3320050d8efe75ce51279de1af3d04" data-toggle="tab">
+                                                .. to authenticate the User                                                </option>
+                                                                                                       
+                                                <option value="#b345782aaf5df1a13f43b6cb82d874c8" data-target="#b345782aaf5df1a13f43b6cb82d874c8" data-toggle="tab">
+                                                .. to send an Email                                                </option>
+                                                                                      
+
+                                    </select>                                      
+                                    <hr />
+                                    <div class="tab-content">
+                                                                                                                        <div class="tab-pane" id="fcc99df83be91bedf5557a3331299776">
+                                                                                            <p>Sorry, no reasonable description yet. </p>
+                                            
+                                                                                            <pre class='prettyprint linenums languague-php'>
+//protected/controllers/UserController.php
+{
+    $user = User::model()->findByPk(7);
+    //or
+    $user = User::model()->findByAttributes(array(
+        'user_id' => 7
+    ));
+
+    //or using custom SQL
+    $user = User::model()->findUserByMyCustomSql();
+}
+</pre>
+
+<pre class='prettyprint linenums languague-php'>
+//protected/models/User.php
+{
+    return $this->findAllBySql('SELECT * FROM users WHERE id=:id', array(':id' => 7));
+}
+</pre>                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="204510f077ee460929104aedccc7c58b">
+                                                                                            <p>You just need to set your config data, and you are good to go.</p>
+                                            
+                                                                                            <pre class='prettyprint linenums languague-php'>
+//protected/config/main.php
+return array(
+    'db' => array(
+        'connectionString' => 'mysql:host=localhost;dbname=jungle',
+        'emulatePrepare' => true,
+        'username' => 'jungle',
+        'password' => 'elgnuj',
+        'charset' => 'utf8',
+    ),
+    // ...
+);
+</pre>                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="d62dfca704930af5c146836ab53d4142">
+                                                                                            <p>Yii uses static function Yii::<b>t()</b> to provide translations. Later on you just run <b>yiic messages</b> command, and Yii creates a single file with translations.</p>
+                                            
+                                                                                            <pre class='prettyprint linenums languague-php'>
+//protected/controllers/UserController.php
+{
+    $count = User::model()->count();
+
+    echo sprintf( Yii::t('system', 'Hello %s !'), 'Josh' );
+    
+    echo  
+        Yii::t('system', 'There are') . 
+        Yii::t('system', 'n==1#one user|n>1# {n} users',array($count)) . 
+        Yii::t('system', ' logged in')
+    ;  
+    //Hello Josh! There are 5 users logged in
+
+}
+</pre>                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="c11b73807a0b7d74cce2084f8c140398">
+                                                                                            <p>You need to first define a model and define the model relations.</p>
+                                            
+                                                                                            <pre class='prettyprint linenums languague-php'>
+//protected/controllers/UserController.php
+{
+    $user = User::model()->findByPk(7);
+
+    print_r($user->posts); //user posts
+    print_r($user->posts[0]->tags); //tags related to particular post
+}
+</pre>                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="81a4a994e4725cf729a19b3a5b999c88">
+                                                                                            <p>As far as there is no built-in way to save "has and belongs to many" records but you can use <a href="http://www.yiiframework.com/extension/esaverelatedbehavior">some</a> <a href="http://www.yiiframework.com/extension/cadvancedarbehavior/">extensions</a>.<br />
+Example below shows how to save BELONGS_TO relation.</p>
+                                            
+                                                                                            <pre class='prettyprint linenums languague-html'>
+//protected/views/post/_form.php
+        
+echo $form->dropDownList( //create select box
+    $model, 
+    'user_id', 
+    CHtml::listData( User::model()->findAll(), 'id', 'email' ) //fetch all users
+); 
+</pre>
+
+<pre class='prettyprint linenums languague-php'>
+//protected/controllers/PostController.php
+
+public function actionCreate()
+{
+    $model = new Post;
+
+    if(isset($_POST['Post']))
+    {
+        $model->attributes = $_POST['Post'];
+        
+        if($model->save()) { 
+            $this->redirect(array('index'));
+        }
+    }
+}
+</pre>                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="2949115025a4028049cb2b5719609d8e">
+                                                                                            <p>Sorry, no reasonable description yet. </p>
+                                            
+                                                                                            <pre class='prettyprint linenums languague-php'>
+//protected/models/user.php
+public function rules()
+{
+    return array(
+        array('email, password', 'required'),
+        array('email', 'email'),
+        array('email','unique'),
+        array('password', 'authenticate'),
+        array('password','length','min'=>8,'max'=>45),
+    );
+}
+
+//protected/models/post.php
+public function rules()
+{
+    return array(
+        array('name, content', 'required'),
+        array('name','length','min'=>3,'max'=>45),
+        array('content','length','min'=>3,'max'=>2000),
+    );
+}
+</pre>                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="a4f0e3145cfdff8d0bcf0b55cc94adb6">
+                                                                                            <p>Sorry, no reasonable description yet. </p>
+                                            
+                                                                                            <pre class='prettyprint linenums languague-php'>
+//protected/views/posts/index.php
+
+echo CHtml::link(
+    $post->user->email, 
+    array(
+        'users/view', 
+        'id' => $post['User']['id']
+    )
+); //url
+
+echo CHtml::image('logo.png'); //image
+echo CHtml::script('main.js'); //js
+echo CHtml::css('style.css'); //css
+</pre>                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="e43e8b4a29848341e55817781b7e19a5">
+                                                                                            <p>Sorry, no reasonable description yet. </p>
+                                            
+                                                                                            <pre class='prettyprint linenums languague-php'>
+//protected/config/main.php
+ 'components'=>array(
+        'urlManager'=>array(
+            'urlFormat'=>'path',
+            'rules'=>array(
+                '&lt;controller:\w+>/&lt;d:\d+>'=>'&lt;controller>/view',
+                '&lt;controller:\w+>/&lt;action:\w+>/&lt;id:\d+>'=>'&lt;controller>/&lt;action>',
+                '&lt;controller:\w+>/&lt;action:\w+>'=>'&lt;controller>/&lt;action>',
+                
+                'people/' => 'user/index',
+                'guy/&lt;email:.*?>' => 'user/view'
+            ),
+        ),
+</pre>                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="e1a2bb6bd0398d6d7a0ef4068686a195">
+                                                                                            <p>Yii provides support for memcache, XCache, APC and EAccelerator.</p>
+                                            
+                                                                                            <pre class='prettyprint linenums languague-php'>
+//protected/controllers/PostController.php
+{
+    if(!($cachedPosts = Yii::app()->cache->get('cache.post.index'))) {
+        $cachedPosts = Post::model()->findAll();
+        Yii::app()->cache->set('cache.post.index', $cachedPosts);
+    }
+}
+</pre>
+
+In your model like that:
+<pre class='prettyprint linenums languague-php'>
+//protected/models/post.php
+public function findLatestPosts()
+{
+    if(!($cachedPosts = Yii::app()->cache->get('cache.post.index'))) {
+        $cachedPosts = $this->findAll();
+        Yii::app()->cache->set('cache.post.index', $cachedPosts);
+    }
+    return $cachedPosts;
+}
+</pre>
+Or like that:
+<pre class='prettyprint linenums languague-php'>
+//protected/models/post.php
+public function findLatestPosts()
+{
+    $dependency = new CDbCacheDependency('SELECT MAX(modified) FROM posts');
+    return Post::model()->cache(1000, $dependency)->findAll();
+}
+</pre>                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="aeb2472a4fe9c28b3f3b911bdbec10ba">
+                                                                                            <p>Sorry, no reasonable description yet. </p>
+                                            
+                                                                                            <pre class='prettyprint linenums languague-php'>
+//protected/models/user.php
+class User extends CActiveRecord {   
+
+    public static function model($className=__CLASS__)
+    {
+        return parent::model($className);
+    }
+ 
+    public function relations()
+    {
+        return array(
+            'posts' => array(self::HAS_MANY, 'Post', 'user_id'),
+        );
+    }
+}
+//protected/models/post.php
+class Post extends CActiveRecord {
+    public function relations()
+    {
+        return array(
+            'tags' => array(self::MANY_MANY, 'Tag', 'posts_tags(post_id, tag_id)'),
+            'user' => array(self::BELONGS_TO, 'User', 'user_id')
+        );
+    }
+}
+//protected/models/tag.php
+class Tag extends CActiveRecord {
+
+    public function relations()
+    {
+        return array(
+            'posts' => array(self::MANY_MANY, 'Post', 'posts_tags(post_id, tag_id)'),
+        );
+    }
+}
+</pre>                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="c40dbc4c023e6e090ddaae628ae2838e">
+                                                                                            <p>Sorry, no reasonable description yet. </p>
+                                            
+                                                                                            <pre class='prettyprint linenums languague-php'>
+//protected/config/main.php
+'urlManager'=>array(
+    'urlFormat'=>'path',
+    'rules'=>array(
+        array('posts/index', 'pattern'=>'post', 'verb'=>'GET'),
+        array('posts/view', 'pattern'=>'post/&lt;id:\d+>', 'verb'=>'GET'),
+        array('posts/update', 'pattern'=>'post/&lt;id:\d+>', 'verb'=>'PUT'),
+        array('posts/delete', 'pattern'=>'post/&lt;id:\d+>', 'verb'=>'DELETE'),
+        array('posts/create', 'pattern'=>'post', 'verb'=>'POST'),
+    ),
+),
+</pre>
+
+<pre class='prettyprint linenums languague-php'>
+//protected/controllers/PostsController.php
+class PostsController extends Controller {
+    public function actionIndex() 
+    {
+        header('Content-type: application/json');
+        $posts = Post::model()->findAll();
+        
+        $rows = array();
+        foreach($posts as $post) {
+            $rows[] = $post->attributes;
+        }
+        
+        echo CJSON::encode($rows);
+        Yii::app()->end();
+    }
+
+    public function view($id) 
+    {
+        header('Content-type: application/json');
+
+        echo CJSON::encode(Post::model()->findByPk($_GET['id']));
+        Yii::app()->end();
+    }
+    //...
+}
+</pre>                                                                                      </div>
+                                                                                                                         <div class="tab-pane" id="9e3320050d8efe75ce51279de1af3d04">
+                                                                                            <p>You need to define class extending from CUserIdentity which represents your logged in user. Since you define it, the rest is very simple.</p>
+                                            
+                                                                                            <pre class='prettyprint linenums languague-php'>
+//protected/components/UserIdentity.php
+class UserIdentity extends CUserIdentity
+{
+    private $_id;
+    
+    public function authenticate() {
+        $record = User::model()->findByAttributes(array('email'=>$this->username));
+        if($record === null) {
+            $this->errorCode=self::ERROR_USERNAME_INVALID;
+        } else if ($record->password!==md5($this->password)){
+            $this->errorCode=self::ERROR_PASSWORD_INVALID;
+        } else {
+            $this->_id=$record->id;
+            $this->errorCode=self::ERROR_NONE;
+        }
+
+        return !$this->errorCode;
+    }
+ 
+    public function getId() {
+        return $this->_id;
+    }
+}
+</pre>
+<pre class='prettyprint linenums languague-php'>
+//protected/controllers/UserController.php
+class UserController extends Controller 
+{
+    public function actionLogin()
+    {
+        $model = new LoginForm;
+
+        if (isset($_POST['LoginForm'])) {
+            $model->attributes = $_POST['LoginForm'];
+            
+            if ($model->validate() && $model->login()){
+                $this->redirect(array('/'));
+            } else {
+                    die('Username or password is incorrect');
+            }
+                
+        }
+        $this->render('login', array('model' => $model));
+    }
+
+    public function actionLogout()
+    {
+        Yii::app()->user->logout();
+        $this->redirect(Yii::app()->homeUrl);
+    }
+}   
+</pre>
+<pre class='prettyprint linenums languague-php'>
+//protected/views/site/login.php
+$form = $this->beginWidget('CActiveForm', array(
+    'id'=>'login-form',
+));
+    
+echo $form->textField($model,'username',array('size'=>'54','class'=>'input')); 
+echo $form->error($model,'username',array('class'=>'errors')); 
+
+echo $form->passwordField($model,'password',array('size'=>'54','class'=>'input')); 
+echo $form->error($model,'password',array('class'=>'errors')); 
+
+echo CHtml::submitButton('Log in'); 
+    
+$this->endWidget(); 
+</pre>
+                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="b345782aaf5df1a13f43b6cb82d874c8">
+                                                                                            <p>Yii does not provide an Email sending class but you can use one of the many extensions, or just use<br />
+PHPs mail() function.</p>
+                                            
+                                                                                            <pre class='prettyprint linenums languague-php'>
+//protected/controllers/UserController.php
+public function registerAction() {
+
+    mail($_POST['User']['email'], 'Registration', 'Registration OK');
+
+}
+</pre>                                                                                    </div>
+                                                                             </div>
+                                </div>
+                                </div>
+                                                    </div>
+                    </div>
+                  
+
+            </div> 
+            
+
+            <footer>
+                This site is in early alpha stage, sorry if I wasted your time.
+                <p>
+                Thanks to <a href="http://ww5.iconsmaster.com/">iconmaster</a> for great panda icon, and to <a href="http://twitter.github.com/bootstrap/">twitter</a> that we don't need to handle the design.
+                <br />
+                
+                <strong>PHP: The framework jungle</strong> by <a href="http://about.me/mailo">Marcin Wawrzyniak (mailo)</a> is licensed under 
+                <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>
+                
+                </p>
+            </footer>
+        </div>
+        <!-- /container -->
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.1.min.js"><\/script>')</script>
+        <script src="js/chosen.jquery.js"></script>
+        <script src="js/vendor/bootstrap.min.js"></script>
+        <script src="js/main.js"></script>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+        <script>
+        $(document).ready(function(){
+            prettyPrint();
+            $(".chosen").data("placeholder","Pick up a scenario! What do I need to do.. ").chosen().change(function(e){
+                e.preventDefault();
+                var id = ($(this).find('option:selected'));
+                $(id).tab('show');
+            });
+
+            $(".extra-link").click(function(e){
+                //e.preventDefault();
+                var id = $(this).attr("href");
+                console.log(id);
+                $(id).tab('show');
+                return false;
+            });
+
+            $(".show-text").click(function(){
+                $("h1").toggle();
+                $(".hide-me").toggle('slow');
+
+                
+            });
+        });
+        </script>
+    </body>
+</html>
+

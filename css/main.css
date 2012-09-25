@@ -1,15 +1,18 @@
 .interesting-header {
-   background: #1B1B1B;
-   width:100%;
-   height:256px;
+   /*background: #1B1B1B;*/
+   /*width:100%;*/
+   /*height:256px;*/
    margin-bottom:20px;
    overflow:hidden;
+   position:absolute;
+   /*left:20px;
+   top:0px;*/
+
+   left: 120px;
+top: 20px;
 }
-.interesting-header img {
-   float: left;
-   margin-left:20px;
-   margin-right:20px;
-   
+.interesting-header img{
+   max-width:150px;
 }
 .interesting-header p {
    color: #fff;
@@ -22,11 +25,26 @@
    max-width: 200px;
    margin-top: 65px;
 }
-p.explain-me{line-height: 26px }
-.tab-content { width:650px; min-height: 200px}
-.container { width:850px !important }
+p.explain-me{line-height: 26px ;color:#ddd;}
+.hide-me{
+   /*display:none;*/
+}
+.hide-me p{
+   line-height: 22px ;color:#ddd;
+}
+/*.tab-content { width:650px; min-height: 200px}*/
+.chzn-container{margin-left:auto;margin-right:0px;}
+.container { width:950px !important; margin-right: 20px; }
 .urls { float:right }
-.urls a:after { content: "," } 
-.urls a:last-child:after { content: "" }
+/*.urls a:after { content: "," } 
+.urls a:last-child:after { content: "" }*/
 .tweet{ line-height:44px }
-footer{ text-align:center }
+/*.well{width:850px;}*/
+footer{ text-align:center;color:#ddd; }
+body{background-color:#1B1B1B;padding-top:10px;}
+.show-text{
+   cursor: pointer;
+}
+.tabbable{
+   min-height: 500px;
+}
