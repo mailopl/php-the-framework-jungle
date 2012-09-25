@@ -54,14 +54,8 @@ $firstFramework = array_shift(array_keys($frameworks));
         <a class="fork-me" href="https://github.com/mailopl/php-the-framework-jungle">
             <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub">
         </a>
-
-
-        <div class="interesting-header">
-            <img src="./img/typical_panda_nothing_fancy.png" alt="Our panda logo!"/>
-            
-        </div>
-
         <div class="container">
+                <img src="./img/typical_panda_nothing_fancy.png" alt="Our panda logo!" class="panda"/>
                 <h1 class="show-text">What &amp; how ?</h1>
                 <h1 class="show-text" style="display:none">Ok, I get it...</h1>
                 

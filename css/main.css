@@ -1,15 +1,9 @@
 .interesting-header {
-   /*background: #1B1B1B;*/
-   /*width:100%;*/
-   /*height:256px;*/
    margin-bottom:20px;
    overflow:hidden;
    position:absolute;
-   /*left:20px;
-   top:0px;*/
-
-   left: 120px;
-top: 20px;
+   top: 15px;
+   right:1040px;
 }
 .interesting-header img{
    max-width:150px;
@@ -25,26 +19,23 @@ top: 20px;
    max-width: 200px;
    margin-top: 65px;
 }
-p.explain-me{line-height: 26px ;color:#ddd;}
-.hide-me{
-   /*display:none;*/
-}
-.hide-me p{
-   line-height: 22px ;color:#ddd;
-}
-/*.tab-content { width:650px; min-height: 200px}*/
+.hide-me p, .explain-me{ line-height: 22px ;color:#ddd; }
 .chzn-container{margin-left:auto;margin-right:0px;}
-.container { width:950px !important; margin-right: 20px; }
+.container { width:1000px !important; margin-right: 20px; }
+
+@media only screen and (min-width: 1300px) { .container { margin-right: auto; } }
+
 .urls { float:right }
-/*.urls a:after { content: "," } 
-.urls a:last-child:after { content: "" }*/
 .tweet{ line-height:44px }
-/*.well{width:850px;}*/
 footer{ text-align:center;color:#ddd; }
 body{background-color:#1B1B1B;padding-top:10px;}
-.show-text{
-   cursor: pointer;
-}
-.tabbable{
-   min-height: 500px;
+.show-text{ cursor: pointer; }
+.tabbable{ min-height: 500px; }
+
+.panda{
+   width: 140px;
+   float: left;
+   margin-left: -160px;
+   margin-right: 20px;
+   margin-top: 10px;
 }
