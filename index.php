@@ -26,7 +26,6 @@ $firstFramework = array_shift(array_keys($frameworks));
 <html class="no-js">
     <head>
         <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <title>PHP: The framework jungle</title>
         <meta name="description" content="When it comes to a frameworks in PHP, this is a jungle. Ruby has Rails, PHP has Symfony2, ZF, CakePHP, Yii, Laravel. Here you have everything you need, to choose the right one for you." />
         <meta name="robots" content="index,follow,archive"/>
@@ -59,26 +58,35 @@ $firstFramework = array_shift(array_keys($frameworks));
 
         <div class="interesting-header">
             <img src="./img/typical_panda_nothing_fancy.png" alt="Our panda logo!"/>
-            <p>
-                <strong>Welcome, in the framework jungle!</strong> <br /> <br />
-                
-                So you know PHP and few of the fancy frameworks out there, and you know that there's no Rails for PHP. <br />
-                Let's take a look, there's Symfony2, ZF2, CakePHP, Yii, Laravel... and the list goes on. <br /><br />
-                What do ALL of these frameworks have in common ? <b>Scenarios</b> in which you will use them. 
-                <br />For example, <b>user authentication</b>. It doesn't matter if you use Symfony2 or Laravel, if you need some <br />
-                badass authentication - you need it, period.
-                
-                
-            </p>
+            
         </div>
 
         <div class="container">
-            <p>
-                <h2>What &amp; how ?</h2>
-                <p class="explain-me">We set some common factors for all of the frameworks to match. For example, we use <a href="img/erd.png" target="_blank">this database schema <img src="img/database.png" /></a>. <br />
-                    Using that schema, we created business rules (ex. email must be unique and in proper format, password must not be empty), <br />
-                    common routes (like http://domain.com/users/new) and many more, just pick up a scenario!
-            </p>
+                <h1 class="show-text">What &amp; how ?</h1>
+                <h1 class="show-text" style="display:none">Ok, I get it...</h1>
+                
+                <div class="hide-me">
+                    <p class="explain-me">phpjungle.org Panda tells you, how to do <b>X</b> thing in <b>Y</b> framework </p>
+                </div>
+                
+                <div class="hide-me" style="display:none">
+                    
+                        <p><strong>Welcome, in the framework jungle!</strong></p>
+                        <p>There's no Rails for PHP. </p>
+                        <p>There's Symfony2, ZF2, CakePHP, Yii, Kohana, CodeIgniter, Laravel... and the list goes on. <br /><br />
+                        What do <strong>ALL</strong> of these frameworks have in common ? <b>Scenarios</b> in which you will use them.</p>
+                        <p>For example, <b>user authentication</b>. It doesn't matter if you use Symfony2 or Laravel, if you need some  <br />
+                        badass authentication - you can do it in any of them.
+                        </p>
+                        <p>This site is build to help you spot differences between frameworks. </p>
+                        <p>How does REST look like in CakePHP ? Symfony? <br />
+                        We hope you find a way out of this jungle and pick a framework that suits your needs and sense of aesthetics.</p>
+                        <p>
+                        We use <a href="img/erd.png" target="_blank">this database schema <img src="img/database.png" alt="ERD"/></a>. <br />
+                        Using that schema, we created business rules, common routes (like http://domain.com/users/new) and few other common factors.
+                    </p>
+                    
+                </div>
 
             <ul class="nav nav-pills">
                 <?php foreach($frameworks as $name => $data): ?>
@@ -96,13 +104,15 @@ $firstFramework = array_shift(array_keys($frameworks));
                     <?php if(empty($data)) continue; ?>
                     <?php $firstVersion = array_shift(array_keys($data['versions'])); ?>
 
-                    <p class="urls">
+                    
+                    <ul class="urls nav nav-pills">
                         <?php if(!empty($data['urls'])): ?>
                             <?php foreach($data['urls'] as $title => $url): ?>
-                                <a href="<?php echo $url ?>"><?php echo $title ?></a>
+                              <li>  <a target="_blank" href="<?php echo $url ?>"><?php echo $title ?></a></li>
                             <?php endforeach ?>
                         <?php endif ?>
-                    </p>
+                    </ul>
+                    
 
                     <h2 id="<?php echo $name ?>"><?php echo $name ?></h2>
 
@@ -113,7 +123,6 @@ $firstFramework = array_shift(array_keys($frameworks));
                             <?php $versionId = md5($name . $version) ?>
                                 <li <?php echo $version == $firstVersion ? 'class="active"' : null ?>><a href="#<?php echo $versionId ?>" data-toggle="tab"><?php echo $version ?></a></li>
                             <?php endforeach ?>
-
                         </ul>
 
                         <div class="tab-content">       
@@ -136,19 +145,19 @@ $firstFramework = array_shift(array_keys($frameworks));
                                           
 
                                     </select>                                      
-                                    <hr size="1" />
+                                    <hr />
                                     <div class="tab-content">
                                         <?php foreach($data['versions'][$version] as $title =>$otherData): ?>
                                         <?php $tabId = md5($name . $version . $title); ?>
-                                        <div class="tab-pane<?php echo $title == $firstTitle ? ' active' : null ?>" id="<?php echo $tabId ?>">
+                                        <div class="tab-pane" id="<?php echo $tabId ?>">
                                             <?php if(!empty($otherData['content'])): ?>
                                                 <p><?php echo nl2br($otherData['content']) ?></p>
                                             <?php else: ?>
-                                                <p>Sorry, no description yet. </p>
+                                                <p>Sorry, no reasonable description yet. </p>
                                             <?php endif ?>
 
                                             <?php if(!empty($otherData['gist'])): ?>
-                                                <p><?php echo $otherData['gist'] ?></p>
+                                                <?php echo $otherData['gist'] ?>
                                             <?php else: ?>
                                                 <p>Sorry, no code snippet yet. </p>
                                             <?php endif ?>
@@ -160,16 +169,34 @@ $firstFramework = array_shift(array_keys($frameworks));
                             <?php endforeach ?>
                         </div>
                     </div>
-                <?php endforeach ?>                
+                <?php endforeach ?>  
+
+<?php /*
+                <div id="disqus_thread"></div>
+                <script type="text/javascript">
+                    var disqus_shortname = 'phpjungle';
+                    (function() {
+                        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+                </script>
+                <noscript>
+                    Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+                </noscript>
+*/ ?>
             </div> 
-            <hr />
+            
+
             <footer>
+                This site is in early alpha stage, sorry if I wasted your time.
                 <p>
                 Thanks to <a href="http://ww5.iconsmaster.com/">iconmaster</a> for great panda icon, and to <a href="http://twitter.github.com/bootstrap/">twitter</a> that we don't need to handle the design.
                 <br />
                 
                 <strong>PHP: The framework jungle</strong> by <a href="http://about.me/mailo">Marcin Wawrzyniak (mailo)</a> is licensed under 
                 <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>
+                
                 </p>
             </footer>
         </div>
@@ -185,8 +212,22 @@ $firstFramework = array_shift(array_keys($frameworks));
             $(".chosen").data("placeholder","Pick up a scenario! What do I need to do.. ").chosen().change(function(e){
                 e.preventDefault();
                 var id = ($(this).find('option:selected'));
-                console.log("showing: " + $(id).val());
                 $(id).tab('show');
+            });
+
+            $(".extra-link").click(function(e){
+                //e.preventDefault();
+                var id = $(this).attr("href");
+                console.log(id);
+                $(id).tab('show');
+                return false;
+            });
+
+            $(".show-text").click(function(){
+                $("h1").toggle();
+                $(".hide-me").toggle('slow');
+
+                
             });
         });
         </script>
