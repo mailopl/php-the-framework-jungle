@@ -98,7 +98,6 @@ $firstFramework = array_shift(array_keys($frameworks));
                     <?php if(empty($data)) continue; ?>
                     <?php $firstVersion = array_shift(array_keys($data['versions'])); ?>
 
-                    
                     <ul class="urls nav nav-pills">
                         <?php if(!empty($data['urls'])): ?>
                             <?php foreach($data['urls'] as $title => $url): ?>
@@ -107,9 +106,7 @@ $firstFramework = array_shift(array_keys($frameworks));
                         <?php endif ?>
                     </ul>
                     
-
                     <h2 id="<?php echo $name ?>"><?php echo $name ?></h2>
-
 
                     <div class="tabbable tabs-left">
                         <ul class="nav nav-tabs">
@@ -130,14 +127,12 @@ $firstFramework = array_shift(array_keys($frameworks));
                                 <div class="tabbable">
                                     <select class="chosen" style="width:400px;">
                                          <option></option>
-                                         <?php foreach($data['versions'][$version] as $title =>$internalData): ?>
+                                        <?php foreach($data['versions'][$version] as $title =>$internalData): ?>
                                                 <?php $tabId = md5($name . $version . $title); ?>           
                                                 <option value="#<?php echo $tabId ?>" data-target="#<?php echo $tabId ?>" data-toggle="tab">
                                                 <?php echo $title ?>
                                                 </option>
-                                            <?php endforeach ?>
-                                          
-
+                                        <?php endforeach ?>
                                     </select>                                      
                                     <hr />
                                     <div class="tab-content">
@@ -146,8 +141,6 @@ $firstFramework = array_shift(array_keys($frameworks));
                                         <div class="tab-pane" id="<?php echo $tabId ?>">
                                             <?php if(!empty($otherData['content'])): ?>
                                                 <p><?php echo nl2br($otherData['content']) ?></p>
-                                            <?php else: ?>
-                                                <p>Sorry, no reasonable description yet. </p>
                                             <?php endif ?>
 
                                             <?php if(!empty($otherData['gist'])): ?>
@@ -165,7 +158,7 @@ $firstFramework = array_shift(array_keys($frameworks));
                     </div>
                 <?php endforeach ?>  
 
-<?php /*
+
                 <div id="disqus_thread"></div>
                 <script type="text/javascript">
                     var disqus_shortname = 'phpjungle';
@@ -178,7 +171,7 @@ $firstFramework = array_shift(array_keys($frameworks));
                 <noscript>
                     Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
                 </noscript>
-*/ ?>
+
             </div> 
             
 
@@ -210,7 +203,6 @@ $firstFramework = array_shift(array_keys($frameworks));
             });
 
             $(".extra-link").click(function(e){
-                //e.preventDefault();
                 var id = $(this).attr("href");
                 console.log(id);
                 $(id).tab('show');
@@ -220,8 +212,6 @@ $firstFramework = array_shift(array_keys($frameworks));
             $(".show-text").click(function(){
                 $("h1").toggle();
                 $(".hide-me").toggle('slow');
-
-                
             });
         });
         </script>
