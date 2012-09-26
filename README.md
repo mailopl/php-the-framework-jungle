@@ -1,16 +1,20 @@
-php-the-framework-jungle
-========================
-
 PHP: The framework jungle
+=========================
 
-When it comes to Ruby and mainstream frameworks, there's Rails. 
-When it comes to PHP and mainstream frameworks, there's Symfony2, CakePHP, CodeIgniter, ZendFramework2, Yii, Laravel... and the list goes on.
+> phpjungle.org tells you, how to do **X** thing in **Y** framework 
+### What and how? ###
 
-What do all of these frameworks have in common ? MVC ? No, we can hardly speak about MVC, it would be rather MVP, but then for example Symfony2 is a request-response framework.
+There's no Rails for PHP. 
 
-Scenarios in which you will use them are common, for all of the frameworks.
+There's Symfony2, ZF2, CakePHP, Yii, Kohana, CodeIgniter, Laravel... and the list goes on. 
 
-Doesn't matter if you use Symfony2 or CakePHP, if you have to authenticate the user, you have to do it - period. 
-And any of these frameworks will let you do it. The thing is, that some of them can do it faster, nicer or generally speaking better (for you).
+What do <strong>ALL</strong> of these frameworks have in common ? <b>Scenarios</b> in which you will use them
 
-Feel free to pick up a scenario and see how particular framework can handle it!
+For example, <b>user authentication</b>. It doesn't matter if you use Symfony2 or Laravel, if you need some 
+badass authentication - you can do it in any of them.
+
+This site is build to help you spot differences between frameworks.
+How does REST look like in CakePHP ? How does it differ in  Symfony? 
+
+We hope you find a way out of this jungle and pick a framework that best suits your needs and sense of aesthetics.
+
