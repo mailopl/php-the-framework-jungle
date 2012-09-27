@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" manifest="cache.manifest" >
+<html class="no-js"  >
     <head>
         <meta charset="utf-8" />
         <title>PHP: The framework jungle</title>
@@ -63,6 +63,9 @@
                         <a href="#CakePHP">CakePHP</a>
                     </li>
                                     <li class="">
+                        <a href="#Laravel">Laravel</a>
+                    </li>
+                                    <li class="">
                         <a href="#Yii">Yii</a>
                     </li>
                      
@@ -78,7 +81,9 @@
                                                           <li>  <a target="_blank" href="http://book.cakephp.org">Official docs</a></li>
                                                                         </ul>
                     
-                    <h2 id="CakePHP">CakePHP</h2>
+                    <h2 id="CakePHP" rel="popover"
+                        data-content="Convention over configuration can be your enemy when not creating a typical CRUD webapp.<br>Not fully object-oriented (lots of arrays that could have been avoided)."
+                        data-original-title="Most noticeable flaws">CakePHP</h2>
 
                     <div class="tabbable tabs-left">
                         <ul class="nav nav-tabs">
@@ -482,11 +487,380 @@ public function register() {
                     </div>
                                                         
                     <ul class="urls nav nav-pills">
+                                                                                  <li>  <a target="_blank" href="http://laravel.com">Official website</a></li>
+                                                          <li>  <a target="_blank" href="http://laravel.com/docs">Official docs</a></li>
+                                                                        </ul>
+                    
+                    <h2 id="Laravel" rel="popover"
+                        data-content="Poor documentation - lacks features as database transactions or saving HABTM relations through Form.<br>Lack of default M/V/C CLI generator (comes in bundle)."
+                        data-original-title="Most noticeable flaws">Laravel</h2>
+
+                    <div class="tabbable tabs-left">
+                        <ul class="nav nav-tabs">
+                                                                                        <li class="active"><a href="#91e2bf72f2f940a90a50160e261eea67" data-toggle="tab">3.2.x</a></li>
+                                                    </ul>
+
+                        <div class="tab-content">       
+                                                                                                                
+                                                        
+                            <div class="tab-pane active" id="91e2bf72f2f940a90a50160e261eea67">   
+                                <div class="tabbable">
+                                    <select class="chosen" style="width:400px;">
+                                         <option></option>
+                                                                                                   
+                                                <option value="#b75c225cffbb4ba25b15769ed2961b19" data-target="#b75c225cffbb4ba25b15769ed2961b19" data-toggle="tab">
+                                                .. to get a specified record from database                                                </option>
+                                                                                                   
+                                                <option value="#4bb617b0451a9983bd2812aadc726670" data-target="#4bb617b0451a9983bd2812aadc726670" data-toggle="tab">
+                                                .. to connect to a database                                                </option>
+                                                                                                   
+                                                <option value="#53fe50d83d12da7645b150d2910793ea" data-target="#53fe50d83d12da7645b150d2910793ea" data-toggle="tab">
+                                                .. to translate my application                                                </option>
+                                                                                                   
+                                                <option value="#94f776394c2d6e0d1118c68e97aed945" data-target="#94f776394c2d6e0d1118c68e97aed945" data-toggle="tab">
+                                                .. to fetch related records                                                </option>
+                                                                                                   
+                                                <option value="#5074110e5507e325d404fcec73d9bb79" data-target="#5074110e5507e325d404fcec73d9bb79" data-toggle="tab">
+                                                .. to save related records                                                </option>
+                                                                                                   
+                                                <option value="#144da0fa50f97cd7741731abd3a935ed" data-target="#144da0fa50f97cd7741731abd3a935ed" data-toggle="tab">
+                                                .. to validate my model                                                </option>
+                                                                                                   
+                                                <option value="#9f3bbfedf8d5af0c6bb711d3be7e5cb4" data-target="#9f3bbfedf8d5af0c6bb711d3be7e5cb4" data-toggle="tab">
+                                                .. to generate a basic view                                                </option>
+                                                                                                   
+                                                <option value="#f04151a483f31a83d34a0e402ec0b00e" data-target="#f04151a483f31a83d34a0e402ec0b00e" data-toggle="tab">
+                                                .. to have pretty URLs                                                </option>
+                                                                                                   
+                                                <option value="#4e68407323f333b16f761af584349f51" data-target="#4e68407323f333b16f761af584349f51" data-toggle="tab">
+                                                .. to have my data cached                                                </option>
+                                                                                                   
+                                                <option value="#7433177677bce7646b36dfc3f64620a5" data-target="#7433177677bce7646b36dfc3f64620a5" data-toggle="tab">
+                                                .. to define models                                                </option>
+                                                                                                   
+                                                <option value="#31fe7d050a2ff9565e1780769e9afbbd" data-target="#31fe7d050a2ff9565e1780769e9afbbd" data-toggle="tab">
+                                                .. to go REST                                                </option>
+                                                                                                   
+                                                <option value="#6664a71af2227964c252ea137a2f9420" data-target="#6664a71af2227964c252ea137a2f9420" data-toggle="tab">
+                                                .. to authenticate the User                                                </option>
+                                                                                                   
+                                                <option value="#5ba830e683ff2cffef83a03dc9e9fe0e" data-target="#5ba830e683ff2cffef83a03dc9e9fe0e" data-toggle="tab">
+                                                .. to send an Email                                                </option>
+                                                                            </select>                                      
+                                    <hr />
+                                    <div class="tab-content">
+                                                                                                                        <div class="tab-pane" id="b75c225cffbb4ba25b15769ed2961b19">
+                                            
+                                                                                            <pre class='prettyprint linenums languague-php'>
+//application/controllers/user.php
+{
+    $user = User::find(7);
+    
+    //or using custom SQL
+    $user = $this->User->findUserByMyCustomSql();
+}
+</pre>
+
+<pre class='prettyprint linenums languague-php'>
+//application/models/user.php
+{
+    return DB::query('SELECT * FROM users WHERE id=?', array(7));
+}
+</pre>                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="4bb617b0451a9983bd2812aadc726670">
+                                                                                            <p>You just need to set your config data, and you are good to go.</p>
+                                            
+                                                                                            <pre class='prettyprint linenums languague-php'>
+//application/config/database.php
+//...
+'connections' => array(
+        'mysql' => array(
+            'driver'   => 'mysql',
+            'host'     => 'localhost',
+            'database' => 'jungle',
+            'username' => 'jungle',
+            'password' => 'elgnuj',
+            'charset'  => 'utf8',
+        ),
+),
+//...
+</pre>                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="53fe50d83d12da7645b150d2910793ea">
+                                                                                            <p>Laravel uses double underscore function to provide easy localization.</p>
+                                            
+                                                                                            <pre class='prettyprint linenums languague-php'>
+//application/languages/en/app.php
+return array(
+    'hello'     => 'Hello :name !',
+    'thereare'  => 'There are :number',
+    'user'      => 'user',
+    'users'     => 'users',
+    'loggedin'  => 'logged in'
+);
+</pre>
+
+<pre class='prettyprint linenums languague-php'>
+//application/controllers/user.php
+{
+    $count = User::count();
+
+    echo __('app.hello', array('name' => 'Josh'));
+    echo __('app.thereare', array($count)) . 
+           ($count > 1 ? __('app.users') : __('app.user')) . __('app.loggedin');
+    //Hello Josh! There are 5 users logged in
+}
+</pre>                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="94f776394c2d6e0d1118c68e97aed945">
+                                                                                            <p>You need to first define a model and proper relations and then you just:</p>
+                                            
+                                                                                            <pre class='prettyprint linenums languague-php'>
+//application/controllers/user.php
+{
+    $user = User::find(7);
+
+    print_r($user->posts); //user posts
+    print_r($user->posts[0]->tags); //tags related to particular post
+}
+</pre>                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="5074110e5507e325d404fcec73d9bb79">
+                                                                                            <p>In Laravel saving related records requires some extra work:</p>
+                                            
+                                                                                            <pre class='prettyprint linenums languague-html'>
+//application/views/post/create.php
+echo Form::open('post/create');
+    echo Form::text('name');
+    echo Form::textarea('content');
+    echo Form::select('user_id', $users); //creates select field for belongs_to relation
+    echo Form::select('tag_id[]', $tags, null, array('multiple'=>'multiple'));//creates multi-select field
+    echo Form::submit('save');
+echo Form::close();
+</pre>
+Keep in mind that some parts (like transaction) of the code below should be placed in the model file, but for simplicity purposes we will leave them as below:
+<pre class='prettyprint linenums languague-php'>
+//application/controllers/post.php
+public function add()
+{
+    if (Request::method() == 'POST') {
+        $post = new Post(array(
+                'name'    => Input::get('name'),
+                'content' => Input::get('content'),
+                'user_id' => Input::get('user_id'),
+            )
+        );
+
+        try {
+            DB::transaction(function() use ($post)
+            {
+                $post->save();
+
+                foreach(Input::get('tag_id') as $tag_id) {
+                    $post->tags()->attach($tag_id);
+                }
+            });
+        } catch(PDOException $e) {
+            die('Error saving a record, sorry');
+        }
+    }
+    return View::make('user.index', array(
+        'tags' => Tag::order_by('id','desc')->lists('name','id'),
+        'users'=> User::order_by('id','desc')->lists('email','id')
+    ));     
+}
+</pre>                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="144da0fa50f97cd7741731abd3a935ed">
+                                            
+                                                                                            <pre class='prettyprint linenums languague-php'>
+//application/models/user.php
+public static $validation = array(
+    'email' => 'required|email|unique:users',
+    'password'=>'required|min:8'
+);
+
+//application/models/post.php
+public static $validation = array(
+    'name' => 'required|min:3|max:50',
+    'content' => 'required|min:3|max:2000'
+);
+
+//application/controllers/post.php
+{
+    $validation = Validator::make(Input::all(), Post::$validation);
+
+    if ($validation->fails()) {
+        return $validation->errors;
+    }
+}
+</pre>                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="9f3bbfedf8d5af0c6bb711d3be7e5cb4">
+                                            
+                                                                                            <pre class='prettyprint linenums languague-php'>
+//application/views/post/index.php
+use Laravel\Html as Html;
+
+echo Html::link(URL::to_action('user@view', array($post->user->id)), $post->user->email); //url
+echo Html::image('logo.png'); //image
+echo Html::script('main.js'); //js
+echo Html::style('style.css'); //css
+</pre>                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="f04151a483f31a83d34a0e402ec0b00e">
+                                            
+                                                                                            <pre class='prettyprint linenums languague-php'>
+//application/routes.php
+Route::any('people', 'users@index');
+Route::any('guy/(:email)', 'users@view');
+</pre>                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="4e68407323f333b16f761af584349f51">
+                                                                                            <p>Laravel has built in support for memcached, APC, Redis, Database cache, File system cache and Memory cache (arrays).<br />
+</p>
+                                            
+                                                                                            <pre class='prettyprint linenums languague-php'>
+//application/controllers/post.php
+{
+    if(!($cached_posts = Cache::get('cache.post.index'))) {
+        $cached_posts = Post::all();
+        Cache::put('cache.post.index', $cached_posts, 1800);
+    }
+}
+</pre>
+Or in your model:
+<pre class='prettyprint linenums languague-php'>
+//application/models/post.php
+public static function find_latest_posts()
+{
+    if(!($cached_posts = Cache::get('cache.post.index'))) {
+        $cached_posts = static::all();
+        Cache::put('cache.post.index', $cached_posts, 1800);
+    }
+    return $cached_posts;
+}
+</pre>                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="7433177677bce7646b36dfc3f64620a5">
+                                            
+                                                                                            <pre class='prettyprint linenums languague-php'>
+//application/models/user.php
+class User extends Eloquent {
+    public static $timestamps = false;
+    
+     public function posts() {
+          return $this->has_many('Post');
+     }
+}
+//application/models/post.php
+class Post extends Eloquent {
+    public function tags() {
+        return $this->has_many_and_belongs_to('Tag');
+    }
+    
+    public function user(){
+        return $this->belongs_to('User');
+    }
+}
+
+//application/models/tag.php
+class Tag extends AppModel {
+
+     public function posts() {
+        return $this->has_many_and_belongs_to('Post');
+    }
+}
+</pre>                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="31fe7d050a2ff9565e1780769e9afbbd">
+                                                                                            <p>You need three things - routing, controller and view that generates json data.</p>
+                                            
+                                                                                            <pre class='prettyprint linenums languague-php'>
+//application/controllers/post.php
+class Posts_Controller extends Base_Controller {
+
+    public $restful = true;
+    
+    public function get_index() {
+        $posts = Post::all();
+        return Response::eloquent($posts);
+    }
+}
+//application/controllers/post.php
+class Post_Controller extends Base_Controller {
+
+    public $restful = true;
+
+    public function get_index($id) {
+        $post = Post::find($id);
+        return Response::eloquent($post);
+    }
+}
+</pre>                                                                                      </div>
+                                                                                                                         <div class="tab-pane" id="6664a71af2227964c252ea137a2f9420">
+                                                                                            <p>CakePHP has built in Auth component so user authentication is super-easy.</p>
+                                            
+                                                                                            <pre class='prettyprint linenums languague-php'>
+//application/controllers/user.php
+class User_Controller extends Base_Controller 
+{
+  
+    public function action_login() 
+    {
+        $credentials = array(
+            'email' => Input::get('email'), 
+            'password' => Input::get('password')
+        );
+
+        if (Auth::attempt($credentials)){
+            return Redirect::to('/');
+        }else{
+            die('Username or password is incorrect');
+        }
+    }
+    
+    public function logout() 
+    {
+        Auth::logout();
+    }                  
+}
+</pre>
+
+
+<pre class='prettyprint linenums languague-php'>
+//application/views/user/login.php
+echo Form::open('user/login');
+    echo Form::text('email');
+    echo Form::password('password');
+    echo Form::submit('Log in');
+echo Form::close();
+</pre>                                                                                    </div>
+                                                                                                                         <div class="tab-pane" id="5ba830e683ff2cffef83a03dc9e9fe0e">
+                                                                                            <p><br />
+                    There is no built in Email component in Laravel, but you can easily install Swift Mailer Bundle.</p>
+                                            
+                                                                                            <pre class='prettyprint'>
+#command line
+php artisan bundle:install messages
+</pre>
+
+<pre class='prettyprint linenums languague-php'>
+//application/controllers/user.php
+public function register() {
+
+    Message::to(Input::get('email'))
+    ->from('admin@phpjungle.org', 'Jungle Chief')
+    ->subject('Registration')
+    ->body('Registration OK')
+    ->send();
+}
+</pre>                                                                                    </div>
+                                                                             </div>
+                                </div>
+                                </div>
+                                                    </div>
+                    </div>
+                                                        
+                    <ul class="urls nav nav-pills">
                                                                                   <li>  <a target="_blank" href="http://www.yiiframework.com/">Official website</a></li>
                                                           <li>  <a target="_blank" href="http://www.yiiframework.com/doc/">Official docs</a></li>
                                                                         </ul>
                     
-                    <h2 id="Yii">Yii</h2>
+                    <h2 id="Yii" rel="popover"
+                        data-content="A lot of singletons and global objects. Lots of Yii::app() executions."
+                        data-original-title="Most noticeable flaws">Yii</h2>
 
                     <div class="tabbable tabs-left">
                         <ul class="nav nav-tabs">
@@ -901,6 +1275,16 @@ public function registerAction() {
     mail($_POST['User']['email'], 'Registration', 'Registration OK');
 
 }
+</pre>
+
+When using <a href="http://www.yiiframework.com/extension/mail" target="_blank">this</a> extension:
+
+<pre class='prettyprint linenums languague-php'>
+$message = new YiiMailMessage;
+$message->view = 'registration';
+$message->addTo($_POST['User']['email']);
+$message->from = Yii::app()->params['adminEmail']; //admin email read from configuration file
+Yii::app()->mail->send($message);
 </pre>                                                                                    </div>
                                                                              </div>
                                 </div>
@@ -963,6 +1347,9 @@ public function registerAction() {
             $(".show-text").click(function(){
                 $("h1").toggle();
                 $(".hide-me").toggle('slow');
+            });
+            $("h2").each(function(){
+                $(this).popover({animation: true, placement: 'left', trigger:'hover', delay:500});
             });
         });
         </script>
