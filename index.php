@@ -23,7 +23,7 @@ $firstFramework = array_shift(array_keys($frameworks));
 
 ?>
 <!DOCTYPE html>
-<html class="no-js">
+<html class="no-js" <?php /*manifest="cache.appcache"*/ ?> >
     <head>
         <meta charset="utf-8" />
         <title>PHP: The framework jungle</title>
@@ -106,7 +106,9 @@ $firstFramework = array_shift(array_keys($frameworks));
                         <?php endif ?>
                     </ul>
                     
-                    <h2 id="<?php echo $name ?>"><?php echo $name ?></h2>
+                    <h2 id="<?php echo $name ?>" rel="popover"
+                        <?php if (isset($data['cons'])):?>data-content="<?php echo join('<br>', $data['cons']) ?>"
+                        data-original-title="Most noticeable flaws"<?php endif ?>><?php echo $name ?></h2>
 
                     <div class="tabbable tabs-left">
                         <ul class="nav nav-tabs">
@@ -212,6 +214,9 @@ $firstFramework = array_shift(array_keys($frameworks));
             $(".show-text").click(function(){
                 $("h1").toggle();
                 $(".hide-me").toggle('slow');
+            });
+            $("h2").each(function(){
+                $(this).popover({animation: true, placement: 'left', trigger:'hover', delay:500});
             });
         });
         </script>

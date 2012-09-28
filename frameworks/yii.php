@@ -1,10 +1,12 @@
 <?php 
 return array(
     'Yii' => array(
-        'logo' =>'http://static.yiiframework.com/files/logo/yii.png',
         'urls' => array(
             'Official website' => 'http://www.yiiframework.com/',
             'Official docs' => 'http://www.yiiframework.com/doc/'
+        ),
+        'cons' => array(
+            'A lot of singletons and global objects. Lots of Yii::app() executions.'
         ),
         'versions' =>  array(
             '1.1' =>  array(
@@ -62,11 +64,16 @@ CODE
 
                 ),
                 '.. to translate my application' => array(
-                    'content' => 'Yii uses static function Yii::<b>t()</b> to provide translations. Later on you just run <b>yiic messages</b> command, and Yii creates a single file with translations.',
+                    'content' => 'Yii uses static method Yii::<b>t()</b> to provide translations. Later on you just run <b>yiic messages</b> command, and Yii creates a single file with translations.',
                     'gist' => 
 
 //-----------------------------------------------------------------
 <<<'CODE'
+<pre class='prettyprint'>
+#Yii CLI
+yiic messages
+</pre>
+
 <pre class='prettyprint linenums languague-php'>
 //protected/controllers/UserController.php
 {
@@ -112,7 +119,7 @@ CODE
                     'content' => 
 <<<'TEXT'
 As far as there is no built-in way to save "has and belongs to many" records but you can use <a href="http://www.yiiframework.com/extension/esaverelatedbehavior">some</a> <a href="http://www.yiiframework.com/extension/cadvancedarbehavior/">extensions</a>.
-Example below shows how to save BELONGS_TO relation.
+Example below shows how to save "belongs to" relation.
 TEXT
                     ,
                   
@@ -192,13 +199,21 @@ CODE
 //-----------------------------------------------------------------
 <<<'CODE'
 <pre class='prettyprint linenums languague-php'>
+//protected/controllers/PostController.php
+{
+    $this->render('index',array(
+        'post' => Post::model()->findByPk(7),
+    ));
+}
+</pre>
+<pre class='prettyprint linenums languague-php'>
 //protected/views/posts/index.php
 
 echo CHtml::link(
     $post->user->email, 
     array(
         'users/view', 
-        'id' => $post['User']['id']
+        'id' => $post->user->id
     )
 ); //url
 
@@ -257,6 +272,7 @@ TEXT
 </pre>
 
 In your model like that:
+
 <pre class='prettyprint linenums languague-php'>
 //protected/models/post.php
 public function findLatestPosts()
@@ -268,7 +284,9 @@ public function findLatestPosts()
     return $cachedPosts;
 }
 </pre>
+
 Or like that:
+
 <pre class='prettyprint linenums languague-php'>
 //protected/models/post.php
 public function findLatestPosts()
@@ -291,8 +309,7 @@ CODE
 //protected/models/user.php
 class User extends CActiveRecord {   
 
-    public static function model($className=__CLASS__)
-    {
+    public static function model($className=__CLASS__){ //without this method you get an error
         return parent::model($className);
     }
  
@@ -305,6 +322,11 @@ class User extends CActiveRecord {
 }
 //protected/models/post.php
 class Post extends CActiveRecord {
+
+    public static function model($className=__CLASS__){
+        return parent::model($className);
+    }
+
     public function relations()
     {
         return array(
@@ -315,6 +337,10 @@ class Post extends CActiveRecord {
 }
 //protected/models/tag.php
 class Tag extends CActiveRecord {
+
+    public static function model($className=__CLASS__){
+        return parent::model($className);
+    }
 
     public function relations()
     {
@@ -382,7 +408,7 @@ CODE
                     ,
                 ),
                 '.. to authenticate the User' => array(
-                    'content' => 'You need to define class extending from CUserIdentity which represents your logged in user. Since you define it, the rest is very simple.',
+                    'content' => 'You need to define a class extending from CUserIdentity which represents your logged in user. Since you define it, the rest is very simple.',
                     'gist' =>
 
 //-----------------------------------------------------------------
@@ -470,7 +496,7 @@ CODE
                 '.. to send an Email' => array(
                     'content' => 
 
-'Yii does not provide an Email sending class but you can use one of the many extensions, or just use
+'Yii does not provide an email sending class but you can use one of the many extensions, or just use
 PHPs mail() function.'
                     ,
                     'gist' =>
@@ -485,11 +511,47 @@ public function registerAction() {
 
 }
 </pre>
+
+You may also use <a href="http://www.yiiframework.com/extension/mail" target="_blank">this</a> extension:
+
+<pre class='prettyprint linenums languague-php'>
+$message = new YiiMailMessage;
+$message->view = 'registration';
+$message->addTo($_POST['User']['email']);
+$message->from = Yii::app()->params['adminEmail']; //admin email read from configuration file
+Yii::app()->mail->send($message);
+</pre>
 CODE
 //-----------------------------------------------------------------
 
                     ,
                 ),
+                /*
+                '.. to control route access' => array(
+                    'content' => '',
+                    'gist' => '',
+                ),
+                '.. to use migrations' => array(
+                    'content' => '',
+                    'gist' => '',
+                ),
+                 '.. to handle user input data' => array(
+                    'content' => '',
+                    'gist' => '',
+                ),
+                'to show SQL log' => array(
+                    'content' => '',
+                    'gist' => '',
+                )
+                'to use session data' => array(
+                    'content' => '',
+                    'gist' => '',
+                )
+                'to use CLI' => array(
+                    'content' => '',
+                    'gist' => '',
+                )
+                */
             ),
         )
     )

@@ -1,10 +1,13 @@
 <?php 
 return array(
     'CakePHP' => array(
-        'logo' =>'http://cakephp.org/img/logo/cakephp_logo_125_trans.png',
         'urls' => array(
             'Official website' => 'http://cakephp.org',
             'Official docs' => 'http://book.cakephp.org'
+        ),
+        'cons' => array(
+            'Convention over configuration can be your enemy when not creating a typical CRUD webapp.',
+            'Not fully object-oriented (lots of arrays that could have been avoided).'
         ),
         'versions' =>  array(
             '2.2' =>  array(
@@ -60,10 +63,15 @@ CODE
 ,
                 ),
                 '.. to translate my application' => array(
-                    'content' => 'CakePHP uses double underscore and __n() functions to provide easy localization.',
+                    'content' => 'CakePHP uses double underscore and __n() functions to provide easy localization. Later on you just run <a target="_blank" href="http://book.cakephp.org/2.0/en/console-and-shells/i18n-shell.html">cake i18n extract</a> command.',
                     'gist' => 
 //-----------------------------------------------------------------
 <<<'CODE'
+<pre class='prettyprint'>
+#CakePHP CLI
+cake i18n extract
+</pre>
+
 <pre class='prettyprint linenums languague-php'>
 //app/Controller/UserController.php
 {
@@ -90,11 +98,7 @@ CODE
 <pre class='prettyprint linenums languague-php'>
 //app/Controller/UserController.php
 {
-    $user = $this->User->find('first', array(
-        'attributes' => array(
-            'id' => '7'
-        )
-    ));
+    $user = $this->User->findById(7);
 
     print_r($user['Posts']); //user posts
     print_r($user['Posts'][0]['Tags']); //tags related to particular post
@@ -106,7 +110,7 @@ CODE
 ,
                 ),
                 '.. to save related records' => array(
-                    'content' => 'In CakePHP saving related records is super easy as you can see below.',
+                    'content' => 'In CakePHP saving related records (belongs to, has many, habtm) is super easy as you can see below.',
                     'gist' => 
 
 //-----------------------------------------------------------------
@@ -191,6 +195,15 @@ CODE
 //-----------------------------------------------------------------
 <<<'CODE'
 <pre class='prettyprint linenums languague-php'>
+//app/Controller/PostsController.php
+{
+    $this->render('index',array(
+         'post'=> $this->Post->findById(7),
+    ));
+}
+</pre>
+
+<pre class='prettyprint linenums languague-php'>
 //app/View/Post/index.ctp
 
 echo $this->Html->link(
@@ -229,8 +242,8 @@ CODE
                 '.. to have my data cached' => array(
                     'content' =>
 <<<'TEXT'
-In CakePHP you can cache queries (in your model) using <a href="http://book.cakephp.org/2.0/en/models/model-attributes.html#cachequeries">$cacheQueries</a> attribute,
-<a href="http://book.cakephp.org/2.0/en/core-libraries/helpers/cache.html">views </a> or any variable using <a href="http://book.cakephp.org/2.0/en/core-libraries/caching.html">Cache</a> class.
+In CakePHP you can cache queries (in your model) using <a href="http://book.cakephp.org/2.0/en/models/model-attributes.html#cachequeries" target="_blank">$cacheQueries</a> attribute,
+<a href="http://book.cakephp.org/2.0/en/core-libraries/helpers/cache.html" target="_blank">views </a> or any variable using <a href="http://book.cakephp.org/2.0/en/core-libraries/caching.html" target="_blank">Cache</a> class.
 
 CakePHP has built in support for memcache, XCache, APC and Redis.
 
@@ -248,7 +261,9 @@ TEXT
     }
 }
 </pre>
+
 Or in your model:
+
 <pre class='prettyprint linenums languague-php'>
 //app/Model/Post.php
 public function findLatestPosts()
@@ -266,14 +281,8 @@ CODE
                     ,
                 ),
                 '.. to define models' => array(
-
-'content' => ''
-
-/*<<<'TEXT'
-This example shows not only a basic related models definition, but also validation rules matching our ERD diagram.
-TEXT*/
-
-,'gist' => 
+                    'content' => '',
+'gist' => 
 
 //-----------------------------------------------------------------
 <<<'CODE'
@@ -284,11 +293,12 @@ class User extends AppModel {
 
     public $hasMany = array(
         'Post' => array(
-                'className' => 'Post',
-                'foreignKey' => 'user_id',
+            'className' => 'Post',
+            'foreignKey' => 'user_id',
         )
     );
 }
+
 //app/Model/Post.php
 class Post extends AppModel {
     public $hasAndBelongsToMany = array(
@@ -308,6 +318,7 @@ class Post extends AppModel {
         )
     );
 }
+
 //app/Model/Tag.php
 class Tag extends AppModel {
 
@@ -327,7 +338,7 @@ CODE
 
 ),
                 '.. to go REST' => array(
-                    'content' => 'You need three things - routing, controller and view that generates json data.',
+                    'content' => 'You need three things - set up routing, define some controller and a view that outputs json data.',
                     'gist' => 
 
 //-----------------------------------------------------------------
@@ -353,7 +364,7 @@ class PostsController extends AppController {
     }
 
     public function view($id) {
-        $post = $this->Post->findById($id);
+        $post = $this->Post->findById($id); //or you could just json_encode here
         $this->set(array(
             'post' => $post,
             '_serialize' => array('post')
@@ -381,7 +392,7 @@ CODE
                     ,
                 ),
                 '.. to authenticate the User' => array(
-                    'content' => 'CakePHP has built in Auth component so user authentication is super-easy.',
+                    'content' => 'CakePHP has built in excellent Auth component.',
                     'gist' => 
 
 //-----------------------------------------------------------------
@@ -429,10 +440,6 @@ CODE
               
 ,
                 ),
-                /*'.. to control the access to the actions' => array(
-                    'content' => '',
-                    'gist' => '',
-                ),*/
                 '.. to send an Email' => array(
                     'content' => 'CakePHP has built in CakeEmail component for sending emails.',
                     'gist' => 
@@ -467,6 +474,33 @@ CODE
 
                     ,
                 ),
+                /*
+                '.. to control route access' => array(
+                    'content' => '',
+                    'gist' => '',
+                ),
+                '.. to use migrations' => array(
+                    'content' => '',
+                    'gist' => '',
+                ),
+                 '.. to handle user input data' => array(
+                    'content' => '',
+                    'gist' => '',
+                ),
+                'to show SQL log' => array(
+                    'content' => '',
+                    'gist' => '',
+                )
+                'to use session data' => array(
+                    'content' => '',
+                    'gist' => '',
+                )
+                'to use CLI' => array(
+                    'content' => '',
+                    'gist' => '',
+                )
+                */
+
             ),
             //add here a new version
         )

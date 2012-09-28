@@ -1,0 +1,27 @@
+CACHE MANIFEST
+#revision: 1 
+
+CACHE:
+css/bootstrap.min.css
+css/bootstrap-responsive.min.css
+css/main.css
+css/chosen.css
+
+img/typical_panda_nothing_fancy.png
+img/database.png
+
+js/vendor/modernizr-2.6.1-respond-1.1.0.min.js
+js/chosen.jquery.js
+js/vendor/bootstrap.min.js
+js/main.js
+
+js/vendor/jquery-1.8.1.min.js
+
+http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.js
+http://platform.twitter.com/widgets.js
+https://themes.googleusercontent.com/static/fonts/telex/v1/eXTLMlW5_yOhUYbVCO_akg.ttf
+http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.css
+https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png
+
+NETWORK:
+*
