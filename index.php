@@ -198,6 +198,14 @@ $firstFramework = array_shift(array_keys($frameworks));
         <script>
         $(document).ready(function(){
             prettyPrint();
+            $("select").each(function(){
+                var rand = Math.floor(Math.random() * $(this).find('option').length)+1;
+                
+                var randId = $($(this).find('option')[rand]);
+                
+                $(randId).attr('selected', 'selected');
+                $(randId).tab('show');
+            });  
             $(".chosen").data("placeholder","Pick up a scenario! What do I need to do.. ").chosen().change(function(e){
                 e.preventDefault();
                 var id = ($(this).find('option:selected'));
@@ -216,7 +224,12 @@ $firstFramework = array_shift(array_keys($frameworks));
                 $(".hide-me").toggle('slow');
             });
             $("h2").each(function(){
-                $(this).popover({animation: true, placement: 'left', trigger:'hover', delay:500});
+                $(this).popover({
+                    animation: true, 
+                    placement: 'left', 
+                    trigger:'hover', 
+                    delay:500
+                });
             });
         });
         </script>
