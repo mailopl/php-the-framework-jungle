@@ -34,6 +34,7 @@
 .tweet{ line-height:44px }
 .show-text{ cursor: pointer; }
 .tabbable{ min-height: 500px; }
+.well h2{display:inline-block;}
 
 @media only screen and (min-width: 1300px) { .container { margin-right: auto; } }
 
