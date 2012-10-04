@@ -26,6 +26,26 @@ $firstFramework = array_shift(array_keys($frameworks));
 <html class="no-js" <?php /*manifest="cache.appcache"*/ ?> >
     <head>
         <meta charset="utf-8" />
+        <!-- 
+               _           _                   _                       
+              | |         (_)                 | |                      
+         _ __ | |__  _ __  _ _   _ _ __   __ _| | ___   ___  _ __ __ _ 
+        | '_ \| '_ \| '_ \| | | | | '_ \ / _` | |/ _ \ / _ \| '__/ _` |
+        | |_) | | | | |_) | | |_| | | | | (_| | |  __/| (_) | | | (_| |
+        | .__/|_| |_| .__/| |\__,_|_| |_|\__, |_|\___(_)___/|_|  \__, |
+        | |         | |  _/ |             __/ |                   __/ |
+        |_|         |_| |__/             |___/                   |___/ 
+
+        
+               _            _                                              _                   _ 
+              (_)          | |                                            | |                 | |
+         _ __  _  ___ ___  | |_ ___    ___  ___  ___   _   _  ___  _   _  | |__   ___ _ __ ___| |
+        | '_ \| |/ __/ _ \ | __/ _ \  / __|/ _ \/ _ \ | | | |/ _ \| | | | | '_ \ / _ \ '__/ _ \ |
+        | | | | | (_|  __/ | || (_) | \__ \  __/  __/ | |_| | (_) | |_| | | | | |  __/ | |  __/_|
+        |_| |_|_|\___\___|  \__\___/  |___/\___|\___|  \__, |\___/ \__,_| |_| |_|\___|_|  \___(_)
+                                                        __/ |                                    
+                                                       |___/                                             
+        -->
         <title>PHP: The framework jungle</title>
         <meta name="description" content="phpjungle.org tells you, how to do X thing in Y PHP framework. Ruby has Rails, PHP has Symfony2, ZF, CakePHP, Yii, Laravel. Here you have everything you need, to choose the right one for you." />
         <meta name="robots" content="index,follow,archive"/>
@@ -198,11 +218,10 @@ $firstFramework = array_shift(array_keys($frameworks));
         <script>
         $(document).ready(function(){
             prettyPrint();
+            var rand = Math.floor(Math.random() * $("select:first").find('option').length)+1;
+
             $("select").each(function(){
-                var rand = Math.floor(Math.random() * $(this).find('option').length)+1;
-                
                 var randId = $($(this).find('option')[rand]);
-                
                 $(randId).attr('selected', 'selected');
                 $(randId).tab('show');
             });  

@@ -77,17 +77,13 @@ yiic messages
 <pre class='prettyprint linenums languague-php'>
 //protected/controllers/UserController.php
 {
-    $count = User::model()->count();
+    $count = 7;
 
-    echo sprintf( Yii::t('system', 'Hello %s !'), 'Josh' );
-    
-    echo  
-        Yii::t('system', 'There are') . 
-        Yii::t('system', 'n==1#one user|n>1# {n} users',array($count)) . 
-        Yii::t('system', ' logged in')
-    ;  
-    //Hello Josh! There are 5 users logged in
-
+    echo  Yii::t(
+        'system', 
+        'n==0#No new messages|n>1# You\'ve got {n} new messages|n==1#One new message', array($count)
+    );  
+    //You've got 7 new messages
 }
 </pre>
 CODE
@@ -526,28 +522,123 @@ CODE
 
                     ,
                 ),
-                /*
+//-----------------------------------------------------------------                
                 '.. to control route access' => array(
                     'content' => '',
-                    'gist' => '',
+                    'gist' => 
+<<<'CODE'
+<pre class='prettyprint linenums languague-php'>
+//protected/controllers/UserController.php
+public function accessRules() {
+        return array(
+            array('allow', // allow not logged in users to register and login
+                'actions' => array('register', 'login'),
+                'users' => array('*'),
+            ),
+            array('allow', // additionally allow logged in users to log out
+                'actions' => array('logout'),
+                'users' => array('@'),
+            ),
+            array('allow', // allow admin user to manage users
+                'actions' => array('manage'),
+                'users' => array('admin'),
+            ),
+            array('deny', // and deny all other actions for users not logged in
+                'users' => array('*'),
+            ),
+        );
+}   
+</pre>
+CODE
+//-----------------------------------------------------------------
+
+
+
+
+                    ,
                 ),
+                
                 '.. to use migrations' => array(
                     'content' => '',
-                    'gist' => '',
+                    'gist' => 
+<<<'CODE'
+First you create a migration class:
+
+<pre class='prettyprint'>
+yiic migrate create create_users
+</pre>
+
+Then you fill up() and down() methods:
+
+<pre class='prettyprint linenums languague-php'>
+class X_create_users extends CDbMigration
+{
+    public function up()
+    {
+         $this->createTable('users', array(
+            'id' => 'pk',
+            'email' => 'string NOT NULL',
+            'password' => 'string NOT NULL',
+            'role' => 'integer',
+            'created'=> 'datetime'
+        ));
+    }
+ 
+    public function down()
+    {
+        $this->dropTable('users');
+
+    }
+}          
+</pre>
+
+And finally you run the migration: 
+
+<pre class='prettyprint'>
+yiic migrate
+</pre>
+CODE
+//-----------------------------------------------------------------
                 ),
+//-----------------------------------------------------------------
+                '.. to show SQL log' => array(
+                    'content' => '',
+                    'gist' => 
+<<<'CODE'
+<pre class='prettyprint linenums languague-php'>   
+//protected/config/main.php
+'preload'=>array('log'),
+
+'db'=>array(
+    //...
+    'enableParamLogging'=>true,
+    'enableProfiling'=>true,
+),
+
+'components'=>array(
+    'log'=>array(array( 
+        'class'=>'CProfileLogRoute', 
+        'report'=>'summary',
+    )),
+    //...
+</pre>
+CODE
+//-----------------------------------------------------------------
+),
+                /*
                  '.. to handle user input data' => array(
                     'content' => '',
                     'gist' => '',
                 ),
-                'to show SQL log' => array(
-                    'content' => '',
-                    'gist' => '',
-                )
                 'to use session data' => array(
                     'content' => '',
                     'gist' => '',
-                )
+                ),
                 'to use CLI' => array(
+                    'content' => '',
+                    'gist' => '',
+                ),
+                 'to initially configure this framework' => array(
                     'content' => '',
                     'gist' => '',
                 )

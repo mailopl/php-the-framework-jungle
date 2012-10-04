@@ -69,23 +69,27 @@ CODE
 <pre class='prettyprint linenums languague-php'>
 //application/languages/en/app.php
 return array(
-    'hello'     => 'Hello :name !',
-    'thereare'  => 'There are :number',
-    'user'      => 'user',
-    'users'     => 'users',
-    'loggedin'  => 'logged in'
+    'msg' => array(
+        'no' => 'No new messages',
+        'one' => 'One new message',
+        'many' => 'You\'ve got :number new messages.'
+    )
 );
 </pre>
 
 <pre class='prettyprint linenums languague-php'>
 //application/controllers/user.php
 {
-    $count = User::count();
+    $count = 7;
 
-    echo __('app.hello', array('name' => 'Josh'));
-    echo __('app.thereare', array($count)) . 
-           ($count > 1 ? __('app.users') : __('app.user')) . __('app.loggedin');
-    //Hello Josh! There are 5 users logged in
+    if ($count == 0){
+        echo __('app.msg.no');
+    }else if($count == 1){
+        echo __('app.msg.one');
+    }else{
+        echo __('app.msg.many', array('number' => $count));
+    }
+    //You've got 7 new messages
 }
 </pre>
 CODE
@@ -432,28 +436,111 @@ CODE
 
                     ,
                 ),
-                /*
+                
                 '.. to control route access' => array(
                     'content' => '',
-                    'gist' => '',
+                    'gist' =>
+//-----------------------------------------------------------------
+<<<'CODE'
+<pre class='prettyprint linenums languague-php'>
+//application/controllers.user.php
+public function __construct()
+{
+    parent::__construct();
+
+    //by default the users has access to the register and login actions, 
+    //but he must be logged in, to log out or see the profile page
+    $this->filter('before', 'auth')->only(array('logout','profile')); 
+
+    $this->filter('before', 'auth:admin')->only(array('manage'));  //admin can manage users
+}  
+
+//application/routes.php
+Route::filter('auth:admin', function() //we need to define what "auth:admin" filter means
+{
+    if (isset(Auth::user()) && Auth::user()->role != 'admin') return Redirect::to('login');
+});  
+</pre>
+CODE
+,
                 ),
+                
                 '.. to use migrations' => array(
                     'content' => '',
-                    'gist' => '',
-                ),
+                    'gist' => 
+               
+//-----------------------------------------------------------------
+<<<'CODE'
+First you run: 
+<pre class='prettyprint'>
+php artisan migrate:install //creates migrations table
+php artisan migrate:make create_users //creates migration file
+</pre>
+
+Then you fill up() and down() methods:
+<pre class='prettyprint linenums languague-php'>
+class Create_Users {
+    /**
+     * Make changes to the database.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('users', function($table) {
+            $table->increments('id');
+            $table->string('email', 45);
+            $table->string('password', 45);
+            $table->integer('role');
+        });
+    }
+    /**
+     * Revert the changes to the database.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::drop('users');
+    }
+}
+</pre>
+
+And finally you run the migration: 
+<pre class='prettyprint'>
+php artisan migrate
+</pre>
+
+CODE
+//-----------------------------------------------------------------
+ ),
+
+                '.. to show SQL log' => array(
+                    'content' => '',
+                    'gist' => 
+//-----------------------------------------------------------------
+<<<'CODE'
+<pre class='prettyprint linenums languague-php'>                    
+//in your view or controller
+print_r(DB::connection()->queries);
+</pre>
+CODE
+                )
+//-----------------------------------------------------------------
+                /*
                  '.. to handle user input data' => array(
                     'content' => '',
                     'gist' => '',
                 ),
-                'to show SQL log' => array(
-                    'content' => '',
-                    'gist' => '',
-                )
                 'to use session data' => array(
                     'content' => '',
                     'gist' => '',
-                )
+                ),
                 'to use CLI' => array(
+                    'content' => '',
+                    'gist' => '',
+                ),
+                 'to initially configure this framework' => array(
                     'content' => '',
                     'gist' => '',
                 )

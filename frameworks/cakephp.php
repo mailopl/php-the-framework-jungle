@@ -75,14 +75,13 @@ cake i18n extract
 <pre class='prettyprint linenums languague-php'>
 //app/Controller/UserController.php
 {
-    $count = $this->User->find('count');
+    $count = 7;
 
-    echo sprintf(__('Hello %s !',true), 'Josh');
-    echo sprintf(
-        __('There are ') . ' %s' . __n('user', 'users', $count) . __(' logged in'),
-        $count;
-    );
-    //Hello Josh! There are 5 users logged in
+    echo !$count ? 
+        __('No new messages') :
+        __n('One new message', sprintf('You\'ve got %s new messages', $count))
+    ;
+    //You've got 7 new messages
 }
 </pre>
 CODE
@@ -474,15 +473,75 @@ CODE
 
                     ,
                 ),
-                /*
+//-----------------------------------------------------------------                
                 '.. to control route access' => array(
                     'content' => '',
-                    'gist' => '',
+                    'gist' =>
+<<<'CODE'
+<pre class='prettyprint linenums languague-php'>                    
+//app/Controller/UsersController.php
+public function beforeFilter() {
+    $this->Auth->allow('register');  
+     
+    if ($this->Auth->user('role') == 'user') { //if the user is logged in
+        $this->Auth->allow('logout'); //allow to log out
+        $this->Auth->deny('login'); //do not allow to log in (beause it doesn't make sense)
+    }  
+}
+</pre>
+CODE
+
                 ),
+//-----------------------------------------------------------------                
+                
                 '.. to use migrations' => array(
                     'content' => '',
-                    'gist' => '',
-                ),
+                    'gist' => 
+<<<'CODE'
+Following code creates first schema file:
+<pre class='prettyprint'>
+cake schema generate
+</pre>
+
+Runned again, asks you:
+<pre class='prettyprint'>
+Generating Schema...
+Schema file exists.
+ [O]verwrite
+ [S]napshot
+ [Q]uit
+Would you like to do? (o/s/q)
+</pre>
+When you select [s], incremental update to schema.php will be created (ex. schema_2.php), and then:
+
+<pre class='prettyprint'>
+cake schema update -s 2
+</pre>
+
+Where 2, is the version number.
+CODE
+),
+                
+//-----------------------------------------------------------------
+'.. to show SQL log' => array(
+                    'content' => '',
+                    'gist' => 
+<<<'CODE'
+<pre class='prettyprint linenums languague-php'>   
+//in your controller
+Configure::write('debug', 2);
+</pre>
+<pre class='prettyprint linenums languague-php'>   
+//in your view
+echo $this->element('sql_dump');
+</pre>
+CODE
+//-----------------------------------------------------------------
+),
+
+
+
+                /*
                  '.. to handle user input data' => array(
                     'content' => '',
                     'gist' => '',
@@ -496,6 +555,10 @@ CODE
                     'gist' => '',
                 )
                 'to use CLI' => array(
+                    'content' => '',
+                    'gist' => '',
+                ),
+                'to initially configure this framework' => array(
                     'content' => '',
                     'gist' => '',
                 )
