@@ -19,7 +19,12 @@ return array(
 <pre class='prettyprint linenums languague-php'>
 //app/controllers/UserController.php
 {
-    $user = User::findFirst(7)
+    //by its integer primary key
+    $user = User::findFirst(7);
+
+    //by other primary key
+    $user = User::findFirst('code=7');
+
     //or using custom SQL
     $user = User::findUserByMyCustomSql();
 }
@@ -28,7 +33,7 @@ return array(
 <pre class='prettyprint linenums languague-php'>
 //app/models/user.php
 {
-    return $this->query('SELECT * FROM users WHERE id=?', array(7));
+    return $this->db->query('SELECT * FROM users WHERE id=?', array(7));
 }
 </pre>
 CODE
@@ -95,7 +100,7 @@ CODE
 <pre class='prettyprint linenums languague-php'>
 //app/controllers/UserController.php
 {
-    $user = User::findFirst(array('id'=>7));
+    $user = User::findFirst(7);
 
     print_r($user->getPosts()); //user posts
     print_r($user->getPosts()[0]->getPostTags()); //tags related to particular post
@@ -126,12 +131,14 @@ CODE
 
 <pre class='prettyprint linenums languague-php'>
 //app/controllers/PostController.php
-public function add()
+use Phalcon\Mvc\Model\Transaction\Failed as TransactionFailed;
+
+public function addAction()
 {
     if ($this->request->isPost()) {
         
         try{
-            $transaction = Phalcon_Transaction_Manager::get();
+            $transaction = $this->transactionManager->get();
             
             $post = new Post;
             $post->setTransaction($transaction);
@@ -143,26 +150,25 @@ public function add()
                 $transaction->rollback("Error saving a record, sorry");
             }
             
-            foreach($request->getPost('tag_id[]') as $tag_id){
+            foreach($this->request->getPost('tag_id') as $tagId){
                 $tag = new PostTags;
                 $tag->setTransaction($transaction);
                 $tag->post_id = $post->id;
-                $tag->tag_id = $tag_id;
-
-                if (false == $tag->save()){
-                    $transaction->rollback('Cannot save tag #' . $tag_id);
+                $tag->tag_id = $tagId;
+                if (false == $tag->save()) {
+                    $transaction->rollback('Cannot save tag #' . $tagId);
                 }
             }
 
             $transaction->commit();
           
-        }catch(Phalcon_Transaction_Failed $e){ 
+        } catch(TransactionFailed $e) { 
             die($e->getMessage());
         }
     }
 
-    $this->set('tags', Tag::find());
-    $this->set('users', User::find());
+    $this->view->setVar('tags', Tag::find());
+    $this->view->setVar('users', User::find());
 }
 </pre>
 CODE
@@ -180,20 +186,24 @@ CODE
 <<<'CODE'
 <pre class='prettyprint linenums languague-php'>
 //app/models/User.php
+use Phalcon\Mvc\Model\Validator\Uniqueness;
+use Phalcon\Mvc\Model\Validator\Email;
 
-public function validation() {
-    $this->validate(new Uniqueness(
-        array(
-            "field"   => "email",
-            "message" => "This email is already used."
-        )
-    ));
-    $this->validate(new EmailValidator(array(
-         'field' => 'email',
-         "message" => "Enter a valid email."
-    )));
+class Users extends Phalcon\Mvc\Model {
+    public function validation() {
+        $this->validate(new Uniqueness(
+            array(
+                "field"   => "email",
+                "message" => "This email is already used."
+            )
+        ));
+        $this->validate(new Email(array(
+             'field' => 'email',
+             "message" => "Enter a valid email."
+        )));
 
-    return $this->validationHasFailed() != true;
+        return $this->validationHasFailed() != true;
+    }
 }
 </pre>
 CODE
@@ -235,20 +245,9 @@ CODE
 //app/routes.php
 $router = new \Phalcon\Mvc\Router();
 
-$router->add(
-    "/people/",
-    array(
-        "controller" => "users",
-        "action"     => "index",
-    )
-);
-$router->add(
-    "/guy/{email}/",
-    array(
-        "controller" => "users",
-        "action"     => "view",
-    )
-);
+$router->add("/people", "Users::index");
+$router->add("/guy/{email}", "Users::view");
+
 $router->handle();
 </pre>
 CODE
@@ -473,18 +472,25 @@ CODE
 <pre class='prettyprint linenums languague-php'>
 //your bootstrap or index.php file
 $eventsManager  = new \Phalcon\Events\Manager();
-$loader = new \Phalcon\Loader();
-//...
+$di->set('db', function() use ($config, $eventsManager){
 
-$eventManager->attach('db', function($event, $connection){    
-    if ($event->getType() == 'afterQuery') {
-        echo $connection->getSQLStatement();
-    }
+    $eventManager->attach('db', function($event, $connection) {
+        if ($event->getType() == 'afterQuery') {
+            echo $connection->getSQLStatement();
+        }
+    });
+
+    $connection = new \Phalcon\Db\Adapter\Pdo\Mysql(array(
+        "host" => $config->database->host,
+        "username" => $config->database->username,
+        "password" => $config->database->password,
+        "dbname" => $config->database->name
+    ));
+
+    $connection->setEventsManager($eventsManager);
+
+    return $connection;
 });
-
-//...
-$loader->setEventsManager($eventsManager);
-$loader->register();
 </pre>
 CODE
                 ),
