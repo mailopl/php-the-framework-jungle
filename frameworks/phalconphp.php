@@ -81,7 +81,7 @@ CODE
     $message = new MessageFormatter($locale, 
      "{0,choice,0#No new messages|
       1#One new message|
-      1<You've got {0,number} new messages}."
+      1>You've got {0,number} new messages}."
     );
 
     echo $message->format($count); //You've got 7 new messages

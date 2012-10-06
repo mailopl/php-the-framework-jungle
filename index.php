@@ -113,7 +113,27 @@ $firstFramework = array_shift(array_keys($frameworks));
                 </li>
             </ul>
             
+
+            <?php 
+                $version = array_shift(array_keys($frameworks[$firstFramework]['versions']));
+                $fdata = $frameworks[$firstFramework]['versions'][$version];
+            ?>
+            
+
             <div class="well">
+                <h4>
+                    Tell me, what do I need to do..
+                    <select class="chosen" style="width:400px;">
+                        <?php foreach($fdata as $title =>$internalData): ?>
+                            <?php $tabId = md5($title); ?>           
+                            <option value="<?php echo $tabId ?>" data-target=".<?php echo $tabId ?>" data-toggle="tab">
+                            <?php echo $title ?>
+                            </option>
+                        <?php endforeach ?>
+                    </select>   
+                </h4>
+                <hr />
+
                 <?php foreach($frameworks as $name => $data): ?>
                     <?php if(empty($data)) continue; ?>
                     <?php $firstVersion = array_shift(array_keys($data['versions'])); ?>
@@ -126,9 +146,7 @@ $firstFramework = array_shift(array_keys($frameworks));
                         <?php endif ?>
                     </ul>
                     
-                    <h2 id="<?php echo $name ?>" rel="popover"
-                        <?php if (isset($data['cons'])):?>data-content="<?php echo join('<br>', $data['cons']) ?>"
-                        data-original-title="Most noticeable flaws"<?php endif ?>><?php echo $name ?></h2>
+                    <h2 id="<?php echo $name ?>"><?php echo $name ?></h2>
 
                     <div class="tabbable tabs-left">
                         <ul class="nav nav-tabs">
@@ -140,27 +158,18 @@ $firstFramework = array_shift(array_keys($frameworks));
 
                         <div class="tab-content">       
                             <?php foreach($data['versions'] as $version => $versionData): ?>
-                            <?php $tabId = md5($name . $version . $title); ?>
+                            <?php $tabId = md5($name); ?>
                             <?php $versionId = md5($name . $version); ?>
                             
                             <?php $firstTitle = array_shift(array_keys($data['versions'][$version])); ?>
                             
                             <div class="tab-pane<?php echo $version == $firstVersion  ? ' active' : null ?>" id="<?php echo $versionId ?>">   
                                 <div class="tabbable">
-                                    <select class="chosen" style="width:400px;">
-                                         <option></option>
-                                        <?php foreach($data['versions'][$version] as $title =>$internalData): ?>
-                                                <?php $tabId = md5($name . $version . $title); ?>           
-                                                <option value="#<?php echo $tabId ?>" data-target="#<?php echo $tabId ?>" data-toggle="tab">
-                                                <?php echo $title ?>
-                                                </option>
-                                        <?php endforeach ?>
-                                    </select>                                      
                                     <hr />
                                     <div class="tab-content">
                                         <?php foreach($data['versions'][$version] as $title =>$otherData): ?>
-                                        <?php $tabId = md5($name . $version . $title); ?>
-                                        <div class="tab-pane" id="<?php echo $tabId ?>">
+                                        <?php $tabId = md5($title); ?>
+                                        <div class="tab-pane <?php echo $tabId ?>">
                                             <?php if(!empty($otherData['content'])): ?>
                                                 <p><?php echo nl2br($otherData['content']) ?></p>
                                             <?php endif ?>
@@ -216,40 +225,25 @@ $firstFramework = array_shift(array_keys($frameworks));
         <script src="js/main.js"></script>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
         <script>
-        $(document).ready(function(){
-            prettyPrint();
-            var rand = Math.floor(Math.random() * $("select:first").find('option').length)+1;
+        $(function(){
+            options = $("select:first").find('option');
+     
+            rand = Math.floor(Math.random() * options.length)+1;
 
-            $("select").each(function(){
-                var randId = $($(this).find('option')[rand]);
-                $(randId).attr('selected', 'selected');
-                $(randId).tab('show');
-            });  
-            $(".chosen").data("placeholder","Pick up a scenario! What do I need to do.. ").chosen().change(function(e){
-                e.preventDefault();
-                var id = ($(this).find('option:selected'));
-                $(id).tab('show');
-            });
-
-            $(".extra-link").click(function(e){
-                var id = $(this).attr("href");
-                console.log(id);
-                $(id).tab('show');
-                return false;
+            $(options[rand]).attr('selected', 'selected');
+            $("select").find("option:selected").tab('show');
+                    
+            $(".chosen").chosen().change(function(e) {
+                $("select").find("option:selected").tab('show');
             });
 
             $(".show-text").click(function(){
                 $("h1").toggle();
                 $(".hide-me").toggle('slow');
             });
-            $("h2").each(function(){
-                $(this).popover({
-                    animation: true, 
-                    placement: 'left', 
-                    trigger:'hover', 
-                    delay:500
-                });
-            });
+
+            prettyPrint();
+
         });
         </script>
     </body>

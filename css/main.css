@@ -20,7 +20,6 @@
    margin-top: 65px;
 }
 .panda{
-   width: 140px;
    float: left;
    margin-left: -160px;
    margin-right: 20px;
@@ -28,7 +27,7 @@
 }
 
 .hide-me p, .explain-me{ line-height: 22px ;color:#ddd; }
-.chzn-container{margin-left:auto;margin-right:0px;}
+.chzn-container{display:inline-block;font-weight: normal;text-align:left;}
 .container { width:1000px !important; margin-right: 20px; }
 .urls { float:right }
 .tweet{ line-height:44px }
@@ -40,3 +39,4 @@
 
 footer{ text-align:center;color:#ddd; }
 body{background-color:#1B1B1B;padding-top:10px;}
+h4{text-align:center;}
