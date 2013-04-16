@@ -83,6 +83,9 @@
                         <a href="#CakePHP">CakePHP</a>
                     </li>
                                     <li class="">
+                        <a href="#CodeIgniter">CodeIgniter</a>
+                    </li>
+                                    <li class="">
                         <a href="#Laravel">Laravel</a>
                     </li>
                                     <li class="">
@@ -156,7 +159,7 @@
                 </h4>
                 <hr />
 
-                                                        
+                                                                            
                     <ul class="urls nav nav-pills">
                                                                                   <li>  <a target="_blank" href="http://cakephp.org">Official website</a></li>
                                                           <li>  <a target="_blank" href="http://book.cakephp.org">Official docs</a></li>
@@ -170,8 +173,7 @@
                                                     </ul>
 
                         <div class="tab-content">       
-                                                                                                                
-                                                        
+                                                                                                                                                                        
                             <div class="tab-pane active" id="b4d7c81954d2eeaf185191355ee02fa9">   
                                 <div class="tabbable">
                                     <hr />
@@ -581,7 +583,423 @@ echo $this->element('sql_dump');
                                 </div>
                                                     </div>
                     </div>
-                                                        
+                                                                            
+                    <ul class="urls nav nav-pills">
+                                                                                  <li>  <a target="_blank" href="http://ellislab.com/codeigniter">Official website</a></li>
+                                                          <li>  <a target="_blank" href="http://ellislab.com/codeigniter/user-guide/">Official docs</a></li>
+                                                                        </ul>
+                    
+                    <h2 id="CodeIgniter">CodeIgniter</h2>
+
+                    <div class="tabbable tabs-left">
+                        <ul class="nav nav-tabs">
+                                                                                        <li class="active"><a href="#866ab6f5fb36a179ba41d3be18731a66" data-toggle="tab">1.7.x</a></li>
+                                                    </ul>
+
+                        <div class="tab-content">       
+                                                                                                                                                                        
+                            <div class="tab-pane active" id="866ab6f5fb36a179ba41d3be18731a66">   
+                                <div class="tabbable">
+                                    <hr />
+                                    <div class="tab-content">
+                                                                                                                        <div class="tab-pane 0f9f632fb608fd248f0db1641cbc35a1">
+                                            
+                                                                                            <pre class='prettyprint linenums languague-php'>
+//application/controllers/user.php
+{
+    $user = $this->db->get_where('user', ['id' => 7]);
+    
+    //or using custom SQL
+    $user = $this->User_model->findByQuery();
+}
+</pre>
+
+<pre class='prettyprint linenums languague-php'>
+//application/models/user_model.php
+{
+    return $this->db->query('SELECT * FROM users WHERE id=?', [7]);
+}
+</pre>                                                                                    </div>
+                                                                                                                         <div class="tab-pane d66bc7c6d63e3dc114e31c93abab108c">
+                                                                                            <p>You just need to set your config data, and you are good to go.</p>
+                                            
+                                                                                            <pre class='prettyprint linenums languague-php'>
+//application/config/database.php
+//...
+$db['default']['hostname'] = 'localhost';
+$db['default']['username'] = 'jungle';
+$db['default']['password'] = 'elgnuj';
+$db['default']['database'] = 'jungle';
+$db['default']['dbdriver'] = 'mysql';
+</pre>                                                                                    </div>
+                                                                                                                         <div class="tab-pane 5e6627306bd8367584ad8c95489dca99">
+                                                                                            <p>CodeIgniter uses lang library in order to provide easy localization.</p>
+                                            
+                                                                                            <pre class='prettyprint linenums languague-php'>
+//application/language/english/error_lang.php
+$lang['no'] = 'No new messages';
+$lang['one'] = 'One new message';
+$lang['many'] = 'You\'ve got %s new messages.';
+
+</pre>
+
+<pre class='prettyprint linenums languague-php'>
+//application/controllers/user.php
+{
+    $this->load->lang('error_lang', 'en');
+
+    $count = 7;
+
+    if ($count == 0){
+        echo $this->lang->line('no');
+    }else if($count == 1){
+        echo $this->lang->line('one');
+    }else{
+        echo sprintf($this->lang->line('many'), $count);
+    }
+    //You've got 7 new messages
+}
+</pre>                                                                                    </div>
+                                                                                                                         <div class="tab-pane d42ff555bc135e652d2ef1f1e9deb03f">
+                                                                                            <p>CodeIgniter has no built-in ORM so you can use joins with active record library, or download additional ORM library like DataMapper.</p>
+                                            
+                                                                                            <pre class='prettyprint linenums languague-php'>
+$this->db->select('*');
+$this->db->from('users');
+$this->db->join('posts', 'posts.user_id = users.id');
+$this->db->where('id=7');
+$query = $this->db->get();
+print_r($query->result()); //user posts and join data
+</pre>
+
+By using <a href="http://stensi.com/datamapper/" target="_blank">DataMapper library</a> this can look like below: <br />
+<pre class='prettyprint linenums languague-php'>
+$user = $this->User->where('id', 7)->get();
+$posts = $user->post->get();
+</pre>                                                                                    </div>
+                                                                                                                         <div class="tab-pane 3b4a55995064f57c972491b8923ae477">
+                                                                                            <p>In CodeIgniter saving related records requires some extra work, because of no built in ORM:</p>
+                                            
+                                                                                            <pre class='prettyprint linenums languague-html'>
+//application/views/post/create.php
+
+echo form_open('post/create');
+    echo form_input('name');
+    echo form_textarea('content');
+    echo form_dropdown('user_id', $users); //creates select field for belongs_to relation
+    echo form_dropdown('tag_id[]', $tags, null, ['multiple'=>'multiple']);//creates multi-select field
+    echo form_submit('save');
+echo form_close();
+</pre>
+
+Keep in mind that some parts (like transaction) of the code below should be placed in the model file, but for simplicity purposes we will leave them as below:
+
+<pre class='prettyprint linenums languague-php'>
+//application/controllers/post.php
+public function add()
+{
+    if ($this->input->method() === 'post') {
+        $this->db->trans_begin();        
+        $this->db->insert('posts', [
+            'name'    => $this->input->post('name'),
+            'content' => $this->input->post('content'),
+            'user_id' => $this->input->post('user_id'),
+        ]);
+
+        foreach($this->input->post('tag_id') as $tag_id) {
+            $this->db->insert('tags', [
+                'tag_id' => $tag_id,
+                'post_id' => $post_id
+            ]);
+        }
+        if ($this->db->trans_status() === FALSE) {
+            $this->db->trans_rollback();
+        } else {
+            $this->db->trans_commit();
+        }        
+    }
+
+    return $this->load->view('user.index', [
+        'tags' => $this->db->get('tags'),
+        'users'=> $this->db->get('users')
+    ]);     
+}
+</pre>                                                                                    </div>
+                                                                                                                         <div class="tab-pane aa13eed3914c83d179d65127b4be552c">
+                                            
+                                                                                            <pre class='prettyprint linenums languague-php'>
+//application/controllers/user.php
+$this->load->library('form_validation');
+$this->form_validation->add_rule('name', 'Name', 'required|min_length[3]|max_length[50]');
+$this->form_validation->add_rule('password', 'password', 'required|min_length[8]');
+</pre>
+<pre class='prettyprint linenums languague-php'>
+//application/controllers/post.php
+$this->load->library('form_validation');
+$this->form_validation->add_rule('name', 'Name', 'required|min_length[3]|max_length[50]');
+$this->form_validation->add_rule('content', 'content', 'required|min_length[3]|max_length[2000]');
+</pre>
+<pre class='prettyprint linenums languague-php'>
+//application/controllers/post.php and user.php
+$validation = Validator::make(Input::all(), Post::$validation);
+
+if ($this->form_validation->run() === false) {
+    $this->load->view('login');
+}
+</pre>
+<pre class='prettyprint linenums languague-php'>
+//application/views/post/login.php
+echo validation_errors();
+</pre>                                                                                    </div>
+                                                                                                                         <div class="tab-pane c1e47cc6a4f44f3bd90e976df094b092">
+                                            
+                                                                                            <pre class='prettyprint linenums languague-php'>
+//application/controllers/post.php
+{
+    $this->load->view('post/index', [
+        'post' => $this->db->get_where('post', ['id' => 7]);
+    ]);
+}
+</pre>
+
+<pre class='prettyprint linenums languague-php'>
+//application/views/post/index.php
+echo anchor('users/view/' . $user->id, $user->email); // URL
+echo img('logo.png'); //image
+echo link('main.js'); //js
+echo link('style.css'); //css
+</pre>                                                                                    </div>
+                                                                                                                         <div class="tab-pane f8e5973d732fcccc203c1924ff7d5ad2">
+                                            
+                                                                                            <pre class='prettyprint linenums languague-php'>
+//application/config/routes.php
+$route['people'] = 'users/index';
+$route['guy/(:any)'] =  'users/view';
+</pre>                                                                                    </div>
+                                                                                                                         <div class="tab-pane e0da484f7ed67e823809390660a4135d">
+                                                                                            <p>CodeIgniter has built in support for memcached, APC and File system cache.</p>
+                                            
+                                                                                            
+<pre class='prettyprint linenums languague-php'>
+//application/controllers/post.php
+{
+    $this->load->driver('cache', ['adapter' => 'apc', 'backup' => 'file']);
+    if(!($cached_posts = $this->cache->get('cache.post.index'))) {
+        $cached_posts = $this->db->get('post');
+        $this->cache->save('cache.post.index', $cached_posts, 1800);
+    }
+}
+</pre>
+
+Or in your model:
+
+<pre class='prettyprint linenums languague-php'>
+//application/models/post.php
+public static function find_latest_posts()
+{
+    if(!($cached_posts =  $this->cache->get('cache.post.index'))) {
+        $cached_posts = $this->db->get('post');
+         $this->cache->save('cache.post.index', $cached_posts, 1800);
+    }
+    return $cached_posts;
+}
+</pre>                                                                                    </div>
+                                                                                                                         <div class="tab-pane 6c0247d15475029aed4534cda4dee102">
+                                            
+                                                                                            <pre class='prettyprint linenums languague-php'>
+//application/models/user_model.php
+class User extends CI_Model { 
+    protected $id;
+    public function posts() {
+       $this->db->select('*');
+       $this->db->from('users');
+       $this->db->join('posts', 'posts.user_id = users.id');
+       $this->db->where(['users.id'=>$this->id]);
+       return $this->db->get()->result();
+    }
+}
+
+//application/models/post_model.php
+class Post extends CI_Model {
+    // no relations possible, cause it's not ORM
+  
+}
+
+//application/models/tag_model.php
+class Tag extends CI_Model {
+    // no relations possible, cause it's not ORM
+}
+</pre>                                                                                    </div>
+                                                                                                                         <div class="tab-pane 09aa368ee72c318e92f25778641a494c">
+                                                                                            <p>CodeIgniter does not include any REST library, but you can use <a href="https://github.com/philsturgeon/codeigniter-restserver" target="_blank">CodeIgniter-RestServer library</a>. Additionally it does support Authentication and API keys out of the box.</p>
+                                            
+                                                                                            <pre class='prettyprint linenums languague-php'>
+//application/controllers/post.php
+class Post_Controller extends REST_Controller {
+    public function index_get($id) {
+        $post = $this->db->get_where('post', ['id'=>$id]);
+        $this->response($post->result());
+    }
+}
+</pre>                                                                                      </div>
+                                                                                                                         <div class="tab-pane 17b04360b30c2104ef4a90407bf0df56">
+                                                                                            <p>CodeIgniter has no built in Auth component, but you can use <a href="https://github.com/TankAuth/Tank-Auth" target="_blank">Tank-Auth</a> library.</p>
+                                            
+                                                                                            <pre class='prettyprint linenums languague-php'>
+//application/controllers/user.php
+class User extends CI_Controller 
+{
+  
+    public function login() {
+        if ($this->input->post('submit')) {
+            $user = $this->User->validate();
+
+            if ($user) {
+                $this->session->set_userdata($user);
+                redirect('user/profile');
+            } else {
+                $this->index();
+            }
+        }
+
+    }
+    
+    public function logout() {
+        $this->session->sess_destroy();
+        redirect('user/index');
+    }                
+}
+</pre>
+
+
+<pre class='prettyprint linenums languague-php'>
+//application/models/user_model.php
+public function validate() {
+    $this->db->where('login', $this->input->post('login'));
+    $this->db->where(
+        'password',
+        $this->encrypt->sha1(
+            $this->config->item('encryption_key') . $this->input->post('password')
+        )
+    );
+
+    $query = $this->db->get('user');
+
+    if ($query->num_rows == 1) {
+        return $query->row();
+    }
+
+    return false;
+}
+</pre>
+
+<pre class='prettyprint linenums languague-php'>
+//application/views/user/login.php
+echo validation_errors();
+echo form_open('user/login');
+    echo form_input('login', 'Login');
+    echo form_input('password', 'Password');
+    echo form_submit('submit','Login');
+echo form_close(); 
+</pre>                                                                                    </div>
+                                                                                                                         <div class="tab-pane 20084acf93b42e3d60be606475f5c7a1">
+                                                                                            <p><br />
+                    CodeIgniter includes Email library, so sending an email is an easy task.</p>
+                                            
+                                                                                            <pre class='prettyprint'>
+#command line
+php artisan bundle:install messages
+</pre>
+
+<pre class='prettyprint linenums languague-php'>
+//application/controllers/user.php
+public function register() {
+
+    $this->load->library('email');
+
+    $this->email->from('admin@phpjungle.org', 'Jungle Chief');
+    $this->email->to($this->input->post('email')); 
+
+    $this->email->subject('Registration');
+    $this->email->message('Registration OK');  
+
+    $this->email->send();
+}
+</pre>                                                                                    </div>
+                                                                                                                         <div class="tab-pane 68de97de20c0352e2c80ea61eeab9401">
+                                                                                            <p>By default CodeIgniter does not come with ACL solution but you can use for example <a href="https://github.com/brandesign/CodeIgniter-ACL" target="_blank">this library</a>.</p>
+                                            
+                                                                                            <pre class='prettyprint linenums languague-php'>
+//application/controllers/user.php
+
+public function __construct()
+{
+    parent::__construct();
+    $this->load->library('acl_auth');
+    $this->acl_auth->restrict_access('admin');
+}
+</pre>                                                                                    </div>
+                                                                                                                         <div class="tab-pane 715910fd0dc8009db366b9922c1e5207">
+                                            
+                                                                                            <pre class='prettyprint linenums languague-php'>
+defined('BASEPATH') OR exit('No direct script access allowed');
+class Migration_Create_users {
+    /**
+     * Make changes to the database.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        $this->dbforge->add_field([
+            'id' => [
+                'type' => 'INT',
+                'constraint' => 5,
+                'unsigned' => true,
+                'auto_increment' => true
+            ],
+            'email' => [
+                'type' => 'VARCHAR',
+                'constraint' => '100',
+            ],
+            'password' => [
+                'type' => 'VARCHAR',
+                'null' => false,
+            ],
+            'role' => [
+                'type' => 'INT',
+                'null' => true,
+            ],
+        ]);
+        
+        $this->dbforge->create_table('users');
+    }
+    /**
+     * Revert the changes to the database.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        $this->dbforge->drop_table('users');
+    }
+}
+</pre>                                                                                    </div>
+                                                                                                                         <div class="tab-pane 9e42f2daa9c83d23b334e72266def544">
+                                            
+                                                                                            <pre class='prettyprint linenums languague-php'>                    
+//in your controller
+public function register() {
+    $this->output->enable_profiler(TRUE);    
+    // ...
+}
+</pre>                                                                                    </div>
+                                                                             </div>
+                                </div>
+                                </div>
+                                                    </div>
+                    </div>
+                                                                            
                     <ul class="urls nav nav-pills">
                                                                                   <li>  <a target="_blank" href="http://laravel.com">Official website</a></li>
                                                           <li>  <a target="_blank" href="http://laravel.com/docs">Official docs</a></li>
@@ -595,8 +1013,7 @@ echo $this->element('sql_dump');
                                                     </ul>
 
                         <div class="tab-content">       
-                                                                                                                
-                                                        
+                                                                                                                                                                        
                             <div class="tab-pane active" id="91e2bf72f2f940a90a50160e261eea67">   
                                 <div class="tabbable">
                                     <hr />
@@ -993,7 +1410,7 @@ print_r(DB::connection()->queries);
                                 </div>
                                                     </div>
                     </div>
-                                                        
+                                                                            
                     <ul class="urls nav nav-pills">
                                                                                   <li>  <a target="_blank" href="http://phalconphp.com">Official website</a></li>
                                                           <li>  <a target="_blank" href="http://phalconphp.com/documentation">Official docs</a></li>
@@ -1007,8 +1424,7 @@ print_r(DB::connection()->queries);
                                                     </ul>
 
                         <div class="tab-content">       
-                                                                                                                
-                                                        
+                                                                                                                                                                        
                             <div class="tab-pane active" id="dea9e2a24e82325bc81841715e227925">   
                                 <div class="tabbable">
                                     <hr />
@@ -1382,7 +1798,7 @@ $di->set('db', function() use ($config, $eventsManager){
                                 </div>
                                                     </div>
                     </div>
-                                                        
+                                                                            
                     <ul class="urls nav nav-pills">
                                                                                   <li>  <a target="_blank" href="http://www.yiiframework.com/">Official website</a></li>
                                                           <li>  <a target="_blank" href="http://www.yiiframework.com/doc/">Official docs</a></li>
@@ -1396,8 +1812,7 @@ $di->set('db', function() use ($config, $eventsManager){
                                                     </ul>
 
                         <div class="tab-content">       
-                                                                                                                
-                                                        
+                                                                                                                                                                        
                             <div class="tab-pane active" id="ad50a4f654e94165b93a8bd30d63e65f">   
                                 <div class="tabbable">
                                     <hr />
